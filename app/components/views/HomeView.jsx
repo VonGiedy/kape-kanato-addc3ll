@@ -15,40 +15,56 @@ export default function HomeView({
   onOpenTimerDirectly, 
   onOpenGlossary 
 }) {
-  const [flavorMood, setFlavorMood] = useState('fruity');
+  const [selectedProfileId, setSelectedProfileId] = useState('mt-apo');
 
-  const moodRecommendations = {
-    fruity: {
-      title: "Mount Apo Anaerobic Natural (BACOFA)",
-      origin: "Davao del Sur · 1,500 MASL · Bagobo-Tagabawa Community",
-      notes: "Ripe strawberry, wild berries, lemongrass & cacao nibs",
-      method: "Hario V60 (1:16 Ratio @ 93°C)",
+  const FEATURED_PROFILES = [
+    {
+      id: 'mt-apo',
+      tabLabel: "Mount Apo (Arabica)",
+      title: "Mount Apo Anaerobic Natural",
+      lot: "BACOFA Lot · Single Origin Arabica",
+      origin: "Bansalan, Davao del Sur · 1,500 MASL",
+      community: "Bagobo-Tagabawa Coffee Farmers",
+      notes: "Wild strawberry, red berries, lemongrass, cacao nibs",
+      method: "Hario V60 · 1:16 Ratio @ 93°C Water",
       regionId: "mt-apo"
     },
-    chocolate: {
-      title: "Sultan Kudarat Fine Robusta (KFAC)",
-      origin: "Kalamansig · 900 MASL · Direct Farmer Cooperative",
-      notes: "Dark chocolate ganache, roasted hazelnut & sweet molasses",
-      method: "French Press or Moka Pot (1:14 Ratio @ 91°C)",
+    {
+      id: 'sultan-kudarat',
+      tabLabel: "Sultan Kudarat (Fine Robusta)",
+      title: "Sultan Kudarat Slow-Dried Natural",
+      lot: "KFAC Cooperative Lot · Fine Robusta",
+      origin: "Kalamansig · 900 MASL",
+      community: "Kalamansig Farmers Agricultural Cooperative",
+      notes: "Dark chocolate, roasted hazelnut, panutsa, molasses",
+      method: "French Press · 1:14 Ratio @ 91°C Water",
       regionId: "sultan-kudarat"
     },
-    floral: {
-      title: "Bukidnon Miarayon Typica (MILALITTRA)",
-      origin: "Kitanglad Range · 1,650 MASL · Talaandig Community",
-      notes: "Jasmine blossom, crisp green apple & raw cane sugar",
-      method: "Chemex or V60 (1:16.5 Ratio @ 92°C)",
+    {
+      id: 'bukidnon',
+      tabLabel: "Bukidnon (Typica)",
+      title: "Bukidnon Miarayon Fully Washed",
+      lot: "MILALITTRA Lot · Highland Arabica",
+      origin: "Kitanglad Mountain Range · 1,650 MASL",
+      community: "Talaandig Indigenous Association",
+      notes: "Jasmine floral, crisp green apple, raw cane sugar",
+      method: "Chemex or V60 · 1:16.5 Ratio @ 92°C Water",
       regionId: "bukidnon"
     },
-    bold: {
-      title: "Kapeng Barako Heritage (Liberica)",
-      origin: "Cavite / Batangas · Lowland Shade-Grown",
-      notes: "Aromatic jackfruit (langka), cedar wood & dark tablea",
-      method: "Traditional Kape Kaldero or French Press (1:12 Ratio)",
+    {
+      id: 'batangas-cavite',
+      tabLabel: "Batangas (Barako)",
+      title: "Heritage Kapeng Barako",
+      lot: "Lowland Shade-Grown Liberica",
+      origin: "Southern Luzon · 350 MASL",
+      community: "Amadeo & Lipa Coffee Growers",
+      notes: "Ripe jackfruit (langka), cedar wood, dark cacao",
+      method: "Traditional Kape Kaldero · 1:12 Ratio @ 95°C Water",
       regionId: "batangas-cavite"
     }
-  };
+  ];
 
-  const currentRecommendation = moodRecommendations[flavorMood];
+  const currentProfile = FEATURED_PROFILES.find(p => p.id === selectedProfileId) || FEATURED_PROFILES[0];
 
   return (
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
@@ -201,78 +217,90 @@ export default function HomeView({
         ))}
       </section>
 
-      {/* Daily Sensory Pairing: Rooted in Mindanao Lots */}
-      <section className="bg-oat rounded-3xl border border-border p-6 sm:p-10">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-border">
+      {/* Featured Harvest Profiles: Rooted in Mindanao Cooperatives */}
+      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-border/80">
           <div>
-            <div className="inline-flex items-center gap-2 bg-cream text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 border border-border">
-              <Sparkles size={14} /> Sensory Exploration Lab
-            </div>
+            <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+              Mindanao Terroir & Profiles
+            </span>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-              What cup profile are you exploring today?
+              Featured Regional Harvests
             </h2>
-            <p className="text-sm text-muted mt-1">
-              Select a flavor mood to view a featured Mindanao coffee and the recommended brewing ratio.
+            <p className="text-sm text-muted mt-1 max-w-xl">
+              Calibrated sensory attributes and extraction parameters for single-origin lots across Mindanao and partner farming cooperatives.
             </p>
           </div>
 
-          {/* Flavor Mood Selector Buttons */}
-          <div className="flex flex-wrap gap-2">
-            {[
-              { id: 'fruity', label: '🍓 Mount Apo Fruity' },
-              { id: 'chocolate', label: '🍫 Sultan Kudarat Cocoa' },
-              { id: 'floral', label: '🌸 Bukidnon Floral' },
-              { id: 'bold', label: '🐗 Heritage Barako' }
-            ].map((mood) => (
-              <button
-                key={mood.id}
-                onClick={() => setFlavorMood(mood.id)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all ${
-                  flavorMood === mood.id
-                    ? 'bg-espresso text-cream shadow-md'
-                    : 'bg-cream text-muted hover:text-espresso border border-border'
-                }`}
-              >
-                {mood.label}
-              </button>
-            ))}
+          {/* Minimalist Origin Selector Tabs (No Emojis) */}
+          <div className="flex flex-wrap gap-1.5 p-1 bg-oat rounded-xl border border-border">
+            {FEATURED_PROFILES.map((profile) => {
+              const isSelected = selectedProfileId === profile.id;
+              return (
+                <button
+                  key={profile.id}
+                  onClick={() => setSelectedProfileId(profile.id)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                    isSelected
+                      ? 'bg-espresso text-cream shadow-sm'
+                      : 'text-muted hover:text-espresso'
+                  }`}
+                >
+                  {profile.tabLabel}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Selected Recommendation Card */}
-        <div className="mt-6 bg-cream p-6 rounded-2xl border border-border flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-roast">Featured Origin:</span>
-              <span className="text-xs bg-oat px-2.5 py-0.5 rounded-full font-semibold text-muted border border-border">{currentRecommendation.origin}</span>
+        {/* Selected Lot Presentation (Clean Craft Coffee Label Style) */}
+        <div className="bg-oat p-6 sm:p-8 rounded-2xl border border-border flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="font-bold text-roast tracking-wide">
+                {currentProfile.lot}
+              </span>
+              <span className="text-muted/60">•</span>
+              <span className="text-muted font-medium">
+                {currentProfile.origin}
+              </span>
             </div>
-            <h3 className="text-2xl font-serif font-bold text-espresso">
-              {currentRecommendation.title}
-            </h3>
-            <p className="text-sm text-muted">
-              <span className="font-semibold text-espresso">Cupping Notes:</span> {currentRecommendation.notes}
-            </p>
-            <p className="text-sm text-muted">
-              <span className="font-semibold text-espresso">ADDC3LL Recipe:</span> {currentRecommendation.method}
-            </p>
+
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+                {currentProfile.title}
+              </h3>
+              <p className="text-xs text-muted mt-0.5">
+                Grown by the {currentProfile.community}
+              </p>
+            </div>
+
+            <div className="pt-1 space-y-1.5 text-xs sm:text-sm">
+              <p className="text-muted">
+                <span className="font-semibold text-espresso">Cupping Notes:</span> {currentProfile.notes}
+              </p>
+              <p className="text-muted">
+                <span className="font-semibold text-espresso">ADDC3LL Calibration:</span> {currentProfile.method}
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-2.5 shrink-0">
             <button
               onClick={() => {
-                const reg = PHILIPPINE_REGIONS.find(r => r.id === currentRecommendation.regionId);
+                const reg = PHILIPPINE_REGIONS.find(r => r.id === currentProfile.regionId);
                 if (reg) onSelectRegion(reg);
               }}
-              className="bg-espresso hover:bg-roast text-cream px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-colors flex items-center justify-center gap-1.5"
+              className="bg-espresso hover:bg-roast text-cream px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm"
             >
-              <span>View Origin</span>
+              <span>Origin Overview</span>
               <ArrowRight size={14} />
             </button>
             <button
               onClick={() => setCurrentView('brewing')}
-              className="bg-oat hover:bg-border/60 text-espresso px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-colors flex items-center justify-center gap-1.5 border border-border"
+              className="bg-cream hover:bg-border/60 text-espresso px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-colors flex items-center justify-center gap-2 border border-border"
             >
-              <span>Brew Calculator</span>
+              <span>Brew Parameters</span>
               <Sliders size={14} />
             </button>
           </div>
