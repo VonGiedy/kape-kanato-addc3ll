@@ -27,21 +27,33 @@ export default function Navbar({
   };
 
   return (
-    <nav className="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b border-border/60 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between">
-        
-        {/* Brand Wordmark (Clean & Editorial) */}
-        <div 
-          onClick={() => handleNav('home')}
-          className="flex items-baseline gap-2.5 cursor-pointer group shrink-0 select-none py-2"
-        >
-          <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors">
-            Kape Kanato
-          </span>
-          <span className="text-[10px] tracking-widest uppercase font-semibold text-muted/70 group-hover:text-roast transition-colors">
-            ADDC3LL
-          </span>
-        </div>
+    <header className="sticky top-0 z-40">
+      {/* Top Prototype Disclaimer Strip */}
+      <div className="bg-espresso text-oat/90 text-[11px] py-1.5 px-4 text-center border-b border-white/10 font-normal tracking-wide flex items-center justify-center gap-2">
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+        <span>
+          <strong className="text-cream font-semibold">Educational Prototype:</strong> Proposed concept for ADDC3LL · Not an official university website.
+        </span>
+      </div>
+
+      <nav className="bg-cream/90 backdrop-blur-md border-b border-border/60 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between">
+          
+          {/* Brand Wordmark (Clean & Editorial) */}
+          <div 
+            onClick={() => handleNav('home')}
+            className="flex items-center gap-2 cursor-pointer group shrink-0 select-none py-2"
+          >
+            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors">
+              Kape Kanato
+            </span>
+            <span className="text-[10px] tracking-widest uppercase font-semibold text-muted/70 group-hover:text-roast transition-colors hidden sm:inline">
+              ADDC3LL
+            </span>
+            <span className="text-[9px] uppercase tracking-wider font-bold bg-oat text-roast px-2 py-0.5 rounded-full border border-border/80">
+              Prototype
+            </span>
+          </div>
 
         {/* Desktop Navigation Links (Minimalist Typography, No Cluttering Icons) */}
         <div className="hidden lg:flex items-center gap-7">
@@ -164,6 +176,7 @@ export default function Navbar({
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+    </header>
   );
 }

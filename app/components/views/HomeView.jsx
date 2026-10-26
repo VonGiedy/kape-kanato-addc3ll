@@ -65,7 +65,7 @@ export default function HomeView({
         <div className="relative z-20 px-6 sm:px-12 py-16 sm:py-24 max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-roast/90 text-cream text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider shadow-sm border border-cream/20">
             <GraduationCap size={15} className="text-caramel" />
-            Ateneo de Davao University · ADDC3LL
+            Proposed Prototype · ADDC3LL
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight text-cream">
@@ -98,6 +98,13 @@ export default function HomeView({
               <MapPin size={18} className="text-caramel" />
               <span>Mindanao Terroir</span>
             </button>
+          </div>
+
+          <div className="mt-8 pt-4 border-t border-white/10 text-xs text-oat/70 flex items-center gap-2">
+            <Info size={14} className="text-caramel shrink-0" />
+            <span>
+              <strong>Prototype Disclaimer:</strong> This webapp is an independent student & community prototype for ADDC3LL, not the official Ateneo de Davao university portal.
+            </span>
           </div>
         </div>
       </section>

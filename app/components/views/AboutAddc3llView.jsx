@@ -29,13 +29,26 @@ export default function AboutAddc3llView() {
       <div className="bg-espresso text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
         <div className="relative z-10 max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
-            Ateneo de Davao University Initiative
+            Ateneo de Davao University Initiative · Prototype
           </div>
           <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
             About ADDC3LL
           </h1>
           <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
             The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> connects university academic research with grassroots innovation in Mindanao's coffee and cacao industries. Based in <strong>Marilog, Davao City</strong>, it operates in partnership with the <strong>Mindanao Coffee Network (MCN)</strong>.
+          </p>
+        </div>
+      </div>
+
+      {/* Explicit Prototype & Educational Disclaimer */}
+      <div className="bg-amber-50 border border-amber-200/90 p-4 sm:p-5 rounded-2xl text-xs sm:text-sm text-espresso/90 flex items-start gap-3 shadow-sm">
+        <Info size={20} className="text-amber-800 shrink-0 mt-0.5" />
+        <div className="space-y-1">
+          <strong className="text-amber-950 font-bold block">
+            Academic Prototype & Proof-of-Concept Notice:
+          </strong>
+          <p className="leading-relaxed">
+            This website is an independent educational web prototype designed to illustrate digital tools and curriculum resources for ADDC3LL. It is <strong>not the official Ateneo de Davao University web portal</strong>. For official university inquiries and publications, please visit <a href="https://www.addu.edu.ph" target="_blank" rel="noreferrer" className="underline font-bold text-amber-900 hover:text-espresso">addu.edu.ph</a>.
           </p>
         </div>
       </div>

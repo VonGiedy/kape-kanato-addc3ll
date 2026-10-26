@@ -126,11 +126,11 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
 
         </div>
 
-        {/* Bottom Credits */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-oat/60 gap-4">
-          <p>© {new Date().getFullYear()} Kape Kanato · Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory.</p>
-          <p className="flex items-center gap-1.5">
-            Dedicated to Mindanao coffee farmers and sustainable Philippine coffee heritage.
+        {/* Bottom Credits & Prototype Disclaimer */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-oat/60 gap-4 border-t border-white/5 mt-4">
+          <p>© {new Date().getFullYear()} Kape Kanato · Educational Web Prototype for ADDC3LL.</p>
+          <p className="text-center md:text-right max-w-xl text-[11px] text-oat/50">
+            <strong>Disclaimer:</strong> This website is an academic proof-of-concept prototype for demonstration and educational purposes. It is not an official publication of Ateneo de Davao University.
           </p>
         </div>
       </div>
