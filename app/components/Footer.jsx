@@ -129,6 +129,11 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
                   ADDC3LL Facilities & Training
                 </button>
               </li>
+              <li>
+                <button onClick={() => setCurrentView('community')} className="hover:text-cream transition-colors text-caramel font-medium">
+                  Community & Blue Beans Society
+                </button>
+              </li>
             </ul>
           </div>
 

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
 import { PHILIPPINE_REGIONS } from '../../data/regions';
+import { COMMUNITY_POSTS } from '../../data/communityPosts';
 
 export default function HomeView({ 
   setCurrentView, 
@@ -634,6 +635,76 @@ export default function HomeView({
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Community Dispatches & Accolades Preview */}
+      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-border">
+          <div>
+            <div className="inline-flex items-center gap-2 bg-oat text-roast text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-1 border border-border">
+              <Users size={13} />
+              <span>People & Field Milestones</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+              Community & Field Dispatches
+            </h2>
+            <p className="text-sm text-muted mt-1 max-w-xl">
+              Celebrating research conferences, championship podiums, student achievements, and farmer field days from ADDC3LL and Blue Beans Society.
+            </p>
+          </div>
+
+          <button
+            onClick={() => setCurrentView('community')}
+            className="bg-roast hover:bg-espresso text-cream text-xs font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-2 self-start sm:self-auto shrink-0"
+          >
+            <span>View All Dispatches</span>
+            <ArrowRight size={14} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {COMMUNITY_POSTS.slice(0, 3).map((post) => (
+            <div
+              key={post.id}
+              onClick={() => setCurrentView('community')}
+              className="group bg-oat rounded-2xl overflow-hidden border border-border hover:border-roast/40 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between"
+            >
+              <div>
+                {post.images && post.images.length > 0 && (
+                  <div className="h-44 overflow-hidden bg-espresso/5 relative">
+                    <img
+                      src={post.images[0].url}
+                      alt={post.images[0].caption}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-espresso/80 backdrop-blur-sm text-cream text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">
+                      {post.category}
+                    </div>
+                  </div>
+                )}
+                <div className="p-5 space-y-2">
+                  <div className="flex items-center gap-1.5 text-[11px] text-muted">
+                    <MapPin size={12} className="text-roast" />
+                    <span className="truncate">{post.location}</span>
+                  </div>
+                  <h3 className="font-serif font-bold text-base text-espresso line-clamp-2 group-hover:text-roast transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-muted leading-relaxed line-clamp-2">
+                    {post.summary}
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-5 pt-0 flex items-center justify-between text-xs font-bold text-roast border-t border-border/40 mt-2">
+                <span className="text-[11px] font-normal text-muted">{post.date}</span>
+                <span className="flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                  Read Dispatch <ArrowRight size={12} />
+                </span>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

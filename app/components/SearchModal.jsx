@@ -1,17 +1,19 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, BookOpen, MapPin, Droplets, HelpCircle, ArrowRight } from 'lucide-react';
+import { Search, X, BookOpen, MapPin, Droplets, HelpCircle, ArrowRight, Users } from 'lucide-react';
 import { ARTICLES } from '../data/articles';
 import { PHILIPPINE_REGIONS } from '../data/regions';
 import { BREWING_METHODS } from '../data/brewingMethods';
 import { COFFEE_GLOSSARY } from '../data/glossary';
+import { COMMUNITY_POSTS } from '../data/communityPosts';
 
 export default function SearchModal({ 
   onClose, 
   onSelectArticle, 
   onSelectRegion, 
   onSelectMethod,
-  onOpenGlossary 
+  onOpenGlossary,
+  onSelectCommunity
 }) {
   const [query, setQuery] = useState('');
   const inputRef = useRef(null);
@@ -58,7 +60,16 @@ export default function SearchModal({
       ).slice(0, 5)
     : [];
 
-  const totalResults = matchedArticles.length + matchedRegions.length + matchedMethods.length + matchedGlossary.length;
+  const matchedCommunity = q
+    ? COMMUNITY_POSTS.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.summary.toLowerCase().includes(q) ||
+        p.content.toLowerCase().includes(q) ||
+        p.tags.some(t => t.toLowerCase().includes(q))
+      )
+    : [];
+
+  const totalResults = matchedArticles.length + matchedRegions.length + matchedMethods.length + matchedGlossary.length + matchedCommunity.length;
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
@@ -214,6 +225,45 @@ export default function SearchModal({
                           </div>
                         </div>
                         <ArrowRight size={16} className="text-muted group-hover:text-espresso transition-transform group-hover:translate-x-1" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Community Dispatches */}
+              {matchedCommunity.length > 0 && (
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-muted block mb-2">
+                    Community & Dispatches ({matchedCommunity.length})
+                  </span>
+                  <div className="space-y-2">
+                    {matchedCommunity.map((p) => (
+                      <div
+                        key={p.id}
+                        onClick={() => {
+                          if (onSelectCommunity) onSelectCommunity(p);
+                          onClose();
+                        }}
+                        className="p-3 bg-cream hover:bg-oat rounded-2xl border border-border cursor-pointer transition-colors flex items-center justify-between group"
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-roast text-cream flex items-center justify-center shrink-0">
+                            <Users size={15} className="text-caramel" />
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h5 className="font-bold text-sm text-espresso group-hover:text-roast transition-colors">
+                                {p.title}
+                              </h5>
+                              <span className="text-[10px] bg-oat text-roast px-2 py-0.5 rounded-full font-semibold border border-border hidden sm:inline">
+                                {p.category}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted line-clamp-1">{p.summary}</p>
+                          </div>
+                        </div>
+                        <ArrowRight size={14} className="text-muted group-hover:text-espresso" />
                       </div>
                     ))}
                   </div>

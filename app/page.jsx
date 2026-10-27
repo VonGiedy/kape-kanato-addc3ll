@@ -11,6 +11,7 @@ import BrewingView from './components/views/BrewingView';
 import PhilippineCoffeeView from './components/views/PhilippineCoffeeView';
 import QuizView from './components/views/QuizView';
 import AboutAddc3llView from './components/views/AboutAddc3llView';
+import CommunityView from './components/views/CommunityView';
 
 // Modals
 import ArticleModal from './components/ArticleModal';
@@ -176,6 +177,10 @@ export default function KapeKanatoApp() {
         {currentView === 'about' && (
           <AboutAddc3llView />
         )}
+
+        {currentView === 'community' && (
+          <CommunityView />
+        )}
       </main>
 
       {/* Global Footer */}
@@ -221,6 +226,9 @@ export default function KapeKanatoApp() {
           }}
           onOpenGlossary={(term) => {
             handleOpenGlossaryWithTerm(term);
+          }}
+          onSelectCommunity={() => {
+            setCurrentView('community');
           }}
         />
       )}
