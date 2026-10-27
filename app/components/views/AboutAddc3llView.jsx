@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { 
   Info, MapPin, Award, CheckCircle2, 
   Send, Users, BookOpen, Coffee, Sparkles, 
-  ShieldCheck, ExternalLink, Calendar, FileText
+  ShieldCheck, ExternalLink, Calendar, FileText,
+  FlaskConical, School, Target, TrendingUp, Mail, Layers
 } from 'lucide-react';
 
 export default function AboutAddc3llView() {
@@ -11,7 +12,7 @@ export default function AboutAddc3llView() {
     name: '',
     email: '',
     organization: '',
-    areaOfInterest: 'Academic Research & Innovation',
+    areaOfInterest: 'Coffee Processing & Fermentation',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
@@ -21,6 +22,88 @@ export default function AboutAddc3llView() {
     if (!formData.name || !formData.email) return;
     setSubmitted(true);
   };
+
+  const OBJECTIVES = [
+    {
+      num: 1,
+      title: "Processing Studies Lab",
+      desc: "Establish a dedicated laboratory for coffee and cacao processing studies."
+    },
+    {
+      num: 2,
+      title: "R&D for Quality & Consistency",
+      desc: "Facilitate research and development to improve the quality and consistency of coffee and cacao products through innovative post-harvest processes (e.g. fermentation and drying processes)."
+    },
+    {
+      num: 3,
+      title: "Farmer Training & Education",
+      desc: "Provide training and education for local farmers, producers, and other industry stakeholders across Mindanao."
+    },
+    {
+      num: 4,
+      title: "Multi-Sectoral Partnerships",
+      desc: "Partner with universities, research institutions, coffee and cacao industry stakeholders, and government agencies to leverage resources and expertise."
+    },
+    {
+      num: 5,
+      title: "Sustainable & Fair-Trade Practices",
+      desc: "Support sustainable agricultural practices and fair-trade initiatives that protect biodiversity and uplift rural livelihoods."
+    }
+  ];
+
+  const COFFEE_PROGRAMS = [
+    { stage: "Processing", items: "Drying, Hulling, Milling" },
+    { stage: "Fermentation", items: "Controlled aerobic, anaerobic, and innovative yeast trials" },
+    { stage: "Quality Control", items: "SCA Green Grading & Cupping evaluation" },
+    { stage: "Roasting", items: "Thermodynamic profiling and sample roasting" },
+    { stage: "Packaging & Storage", items: "Reposo moisture stabilization and barrier packaging" },
+    { stage: "Marketing", items: "Connecting specialty producers with local and regional markets" }
+  ];
+
+  const CACAO_PROGRAMS = [
+    { stage: "Processing", items: "Fermentation box protocols, drying, winnowing, grinding" },
+    { stage: "Fermentation", items: "Microbiological tracking of flavor precursors" },
+    { stage: "Quality Control", items: "Cut-test defect analysis & sensory evaluation" },
+    { stage: "Roasting", items: "Bean roasting for artisanal chocolate and tablea" },
+    { stage: "Packaging & Storage", items: "Moisture-controlled preservation" },
+    { stage: "Marketing", items: "Promoting Davao and Mindanao single-estate cacao" }
+  ];
+
+  const FACILITIES = [
+    {
+      title: "Research Laboratory",
+      icon: FlaskConical,
+      badge: "Scientific Analysis",
+      desc: "Equipped with specialized tools for fermentation analysis, microbial tracking, moisture/water activity measurement, and post-harvest processing studies."
+    },
+    {
+      title: "Training Center",
+      icon: School,
+      badge: "Education & Capacity",
+      desc: "Classroom and hands-on training facility for educational workshops, barista instruction, cupping sessions, and producer research programs."
+    },
+    {
+      title: "Experimental Farms",
+      icon: Layers,
+      badge: "Field Trials",
+      desc: "Dedicated agricultural acreage for field trials, shade canopy agroforestry studies, and demonstration of engineering solutions for sustainable practices."
+    }
+  ];
+
+  const EXPECTED_OUTCOMES = [
+    {
+      title: "Enhanced Quality & Value",
+      desc: "Upgrading cup profiles and consistency of Mindanao coffee and cacao products to achieve specialty grade benchmarks."
+    },
+    {
+      title: "Increased Marketability & Export",
+      desc: "Expanding domestic visibility and international export potential for Davao and Mindanao single-origin lots."
+    },
+    {
+      title: "Improved Farmer Livelihoods",
+      desc: "Empowering smallholders and indigenous communities through direct access to better, high-value processing methods."
+    }
+  ];
 
   return (
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
@@ -35,12 +118,12 @@ export default function AboutAddc3llView() {
             About ADDC3LL
           </h1>
           <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> connects university academic research with grassroots innovation in Mindanao's coffee and cacao industries. Based in <strong>Marilog, Davao City</strong>, it operates in partnership with the <strong>Mindanao Coffee Network (MCN)</strong>.
+            The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> is a university-based research, training, and innovation facility located in <strong>Marilog, Davao City</strong>. It connects academic science with grassroots development across Mindanao's coffee and cacao sectors.
           </p>
         </div>
       </div>
 
-      {/* Explicit Prototype & Educational Disclaimer */}
+      {/* Prototype Disclaimer */}
       <div className="bg-amber-50 border border-amber-200/90 p-4 sm:p-5 rounded-2xl text-xs sm:text-sm text-espresso/90 flex items-start gap-3 shadow-sm">
         <Info size={20} className="text-amber-800 shrink-0 mt-0.5" />
         <div className="space-y-1">
@@ -48,7 +131,7 @@ export default function AboutAddc3llView() {
             Academic Prototype & Proof-of-Concept Notice:
           </strong>
           <p className="leading-relaxed">
-            This website is an independent educational web prototype designed to illustrate digital tools and curriculum resources for ADDC3LL. It is <strong>not the official Ateneo de Davao University web portal</strong>. For official university inquiries and publications, please visit <a href="https://www.addu.edu.ph" target="_blank" rel="noreferrer" className="underline font-bold text-amber-900 hover:text-espresso">addu.edu.ph</a>.
+            This website is an independent educational web prototype illustrating digital tools and curriculum resources for ADDC3LL. It is <strong>not an official Ateneo de Davao University portal</strong>. For official university inquiries and publications, please visit <a href="https://www.addu.edu.ph" target="_blank" rel="noreferrer" className="underline font-bold text-amber-900 hover:text-espresso">addu.edu.ph</a>.
           </p>
         </div>
       </div>
@@ -61,209 +144,329 @@ export default function AboutAddc3llView() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm">
           <div className="p-4 bg-oat rounded-2xl border border-border">
             <span className="text-[10px] uppercase font-bold text-muted block mb-1">Official Name</span>
-            <span className="font-bold text-espresso">Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</span>
+            <span className="font-bold text-espresso">Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory</span>
           </div>
           <div className="p-4 bg-oat rounded-2xl border border-border">
             <span className="text-[10px] uppercase font-bold text-muted block mb-1">Parent Institution</span>
             <span className="font-bold text-espresso">Ateneo de Davao University (ADDU)</span>
           </div>
           <div className="p-4 bg-oat rounded-2xl border border-border">
-            <span className="text-[10px] uppercase font-bold text-muted block mb-1">Partner Organization</span>
-            <span className="font-bold text-espresso">Mindanao Coffee Network (MCN)</span>
-          </div>
-          <div className="p-4 bg-oat rounded-2xl border border-border">
             <span className="text-[10px] uppercase font-bold text-muted block mb-1">Physical Location</span>
             <span className="font-bold text-espresso">Marilog, Davao City, Philippines</span>
+          </div>
+          <div className="p-4 bg-oat rounded-2xl border border-border">
+            <span className="text-[10px] uppercase font-bold text-muted block mb-1">Primary Sectors</span>
+            <span className="font-bold text-espresso">Coffee & Cacao Value Chains</span>
           </div>
         </div>
       </section>
 
-      {/* Three Core Pillars of Activity */}
+      {/* 5 Official Objectives */}
       <section className="space-y-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
-            Our Purpose & Mandate
+            Institutional Goals
           </span>
-          <h2 className="text-3xl font-serif font-bold text-espresso">
-            Three Pillars of Collaborative Innovation
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            Official Objectives
           </h2>
           <p className="text-sm text-muted mt-1 max-w-2xl">
-            ADDC3LL's published framework connects academic research with practical agricultural application to support producers and communities across Mindanao.
+            ADDC3LL operates under five core mandates to transform post-harvest quality and farmer livelihoods in Mindanao:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {OBJECTIVES.map((obj) => (
+            <div 
+              key={obj.num}
+              className="bg-cream p-6 rounded-2xl border border-border shadow-sm flex flex-col justify-between hover:border-roast/50 transition-colors"
+            >
+              <div>
+                <span className="w-8 h-8 rounded-full bg-oat text-roast flex items-center justify-center font-bold text-xs mb-4 border border-border">
+                  0{obj.num}
+                </span>
+                <h4 className="font-serif font-bold text-lg text-espresso mb-2">
+                  {obj.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                  {obj.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {/* Quick Trademark Highlight as 6th companion card */}
+          <div className="bg-espresso text-cream p-6 rounded-2xl border border-border/20 shadow-md flex flex-col justify-between">
+            <div>
+              <span className="inline-block bg-roast text-caramel text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-4">
+                Milestone · IPOPHL
+              </span>
+              <h4 className="font-serif font-bold text-lg text-cream mb-2">
+                Class 40 Registered Trademark
+              </h4>
+              <p className="text-xs text-oat/90 leading-relaxed">
+                Registered on February 27, 2026 with the Intellectual Property Office of the Philippines covering coffee roasting and processing (valid through 2036).
+              </p>
+            </div>
+            <span className="text-[11px] text-caramel font-semibold mt-4 block">
+              Announced May 11, 2026 by ADDU
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Programs: Coffee & Cacao */}
+      <section className="space-y-6">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+            Scope of Innovation
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            Research Programs
+          </h2>
+          <p className="text-sm text-muted mt-1 max-w-2xl">
+            Integrated R&D programs covering the full product lifecycle from post-harvest engineering to sensory quality and marketing:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Coffee Research Program */}
+          <div className="bg-cream p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
+            <div className="flex items-center gap-3 pb-3 border-b border-border">
+              <div className="w-10 h-10 rounded-xl bg-espresso text-cream flex items-center justify-center">
+                <Coffee size={20} className="text-caramel" />
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-xl text-espresso">
+                  Coffee Research Program
+                </h3>
+                <span className="text-xs text-roast font-semibold">Arabica, Fine Robusta & Liberica</span>
+              </div>
+            </div>
+
+            <div className="space-y-2.5 pt-2">
+              {COFFEE_PROGRAMS.map((item, idx) => (
+                <div key={idx} className="p-3 bg-oat/70 rounded-xl border border-border text-xs sm:text-sm">
+                  <strong className="text-espresso block font-semibold mb-0.5">{item.stage}</strong>
+                  <span className="text-muted">{item.items}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Cacao Research Program */}
+          <div className="bg-cream p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
+            <div className="flex items-center gap-3 pb-3 border-b border-border">
+              <div className="w-10 h-10 rounded-xl bg-amber-900 text-cream flex items-center justify-center">
+                <Sparkles size={20} className="text-amber-200" />
+              </div>
+              <div>
+                <h3 className="font-serif font-bold text-xl text-espresso">
+                  Cacao Research Program
+                </h3>
+                <span className="text-xs text-roast font-semibold">Single-Estate Davao Cacao & Tablea</span>
+              </div>
+            </div>
+
+            <div className="space-y-2.5 pt-2">
+              {CACAO_PROGRAMS.map((item, idx) => (
+                <div key={idx} className="p-3 bg-oat/70 rounded-xl border border-border text-xs sm:text-sm">
+                  <strong className="text-espresso block font-semibold mb-0.5">{item.stage}</strong>
+                  <span className="text-muted">{item.items}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities and Resources */}
+      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-8">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+            Infrastructure & Learning Spaces
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            Facilities & Resources
+          </h2>
+          <p className="text-sm text-muted mt-1 max-w-2xl">
+            Established in Marilog, Davao City to support academic investigation, producer workshops, and real-world field trials:
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Pillar 1 */}
-          <div className="bg-cream p-8 rounded-3xl border border-border shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-espresso text-cream flex items-center justify-center">
-                <BookOpen size={22} className="text-caramel" />
+          {FACILITIES.map((fac, idx) => {
+            const Icon = fac.icon;
+            return (
+              <div key={idx} className="bg-oat p-6 rounded-2xl border border-border space-y-3 flex flex-col justify-between">
+                <div>
+                  <div className="w-10 h-10 rounded-xl bg-espresso text-cream flex items-center justify-center mb-3">
+                    <Icon size={20} className="text-caramel" />
+                  </div>
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-roast block mb-1">
+                    {fac.badge}
+                  </span>
+                  <h4 className="font-serif font-bold text-xl text-espresso mb-2">
+                    {fac.title}
+                  </h4>
+                  <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                    {fac.desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-serif font-bold text-espresso">
-                1. Academic Research & Innovation
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Connecting university research with the practical challenges and opportunities of Mindanao's coffee and cacao sectors. Fostering two-way knowledge exchange between academic researchers and agricultural producers.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-border text-xs text-roast font-semibold">
-              Research · Applied Science · Knowledge Sharing
-            </div>
-          </div>
+            );
+          })}
+        </div>
+      </section>
 
-          {/* Pillar 2 */}
-          <div className="bg-cream p-8 rounded-3xl border border-border shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-roast text-cream flex items-center justify-center">
-                <Users size={22} className="text-caramel" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-espresso">
-                2. Training & Technology Transfer
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Providing a dedicated setting for transferring modern knowledge and processing technologies to practitioners in the field through workshops, demonstrations, and active collaboration.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-border text-xs text-roast font-semibold">
-              Workshops · Technical Demonstrations · Capacity Building
-            </div>
-          </div>
+      {/* Expected Outcomes */}
+      <section className="bg-oat rounded-3xl border border-border p-6 sm:p-10 space-y-6">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+            Measurable Impact
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            Expected Outcomes
+          </h2>
+        </div>
 
-          {/* Pillar 3 */}
-          <div className="bg-cream p-8 rounded-3xl border border-border shadow-sm space-y-3 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="w-12 h-12 rounded-2xl bg-amber-800 text-cream flex items-center justify-center">
-                <Coffee size={22} className="text-cream" />
-              </div>
-              <h3 className="text-xl font-serif font-bold text-espresso">
-                3. Agro-enterprise Development
-              </h3>
-              <p className="text-sm text-muted leading-relaxed">
-                Linking research and innovation directly with grassroots enterprise growth, strengthening local value chains, and helping smallholder coffee and cacao ventures thrive sustainably in Mindanao.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {EXPECTED_OUTCOMES.map((out, idx) => (
+            <div key={idx} className="bg-cream p-6 rounded-2xl border border-border shadow-sm space-y-2">
+              <span className="text-xs font-bold text-roast uppercase tracking-wider block">
+                Outcome 0{idx + 1}
+              </span>
+              <h4 className="font-serif font-bold text-lg text-espresso">
+                {out.title}
+              </h4>
+              <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                {out.desc}
               </p>
             </div>
-            <div className="pt-4 border-t border-border text-xs text-roast font-semibold">
-              Value Addition · Enterprise Support · Grassroots Growth
-            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Education & Academic Mandate */}
+      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-8 shadow-sm space-y-4">
+        <span className="text-xs font-bold uppercase tracking-widest text-roast block">
+          Academic Extension
+        </span>
+        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+          Education & Student Opportunities
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <div className="p-4 bg-oat rounded-xl border border-border text-xs sm:text-sm">
+            <strong className="text-espresso block font-semibold mb-1">Workshops & Seminars</strong>
+            <p className="text-muted leading-relaxed">Hands-on post-harvest and cupping education for local farmers, baristas, and community members.</p>
+          </div>
+          <div className="p-4 bg-oat rounded-xl border border-border text-xs sm:text-sm">
+            <strong className="text-espresso block font-semibold mb-1">Publications & Guides</strong>
+            <p className="text-muted leading-relaxed">Publishing practical research findings, processing manuals, and best practice guides for the industry.</p>
+          </div>
+          <div className="p-4 bg-oat rounded-xl border border-border text-xs sm:text-sm">
+            <strong className="text-espresso block font-semibold mb-1">Student Thesis Extension</strong>
+            <p className="text-muted leading-relaxed">Providing a formal avenue for undergraduate and graduate students to conduct field and lab research.</p>
           </div>
         </div>
       </section>
 
-      {/* Trademark & Intellectual Property Milestone */}
+      {/* Partnership and Institutional Support */}
       <section className="bg-espresso text-cream rounded-3xl p-8 sm:p-12 border border-border/20 shadow-xl space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/10">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-              <ShieldCheck size={14} /> Official University Milestone
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-cream">
-              Intellectual Property Registration (IPOPHL)
-            </h2>
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
+            Institutional Backing
           </div>
-          <span className="text-xs text-oat/70 font-mono bg-white/5 px-3 py-1.5 rounded-xl border border-white/10">
-            Valid: 2026 – 2036
-          </span>
+          <h2 className="text-2xl sm:text-3xl font-serif font-bold">
+            Partnership and Support
+          </h2>
         </div>
 
         <p className="text-sm sm:text-base text-oat/90 leading-relaxed max-w-3xl">
-          On <strong>February 27, 2026</strong>, ADDC3LL achieved registered trademark status with the <strong>Intellectual Property Office of the Philippines (IPOPHL)</strong> under <strong>Class 40</strong>, covering <strong>coffee roasting and processing</strong>. Ateneo de Davao University formally announced this 10-year institutional milestone on <strong>May 11, 2026</strong>.
+          This initiative is supported under the <strong>Strengthening the Implementation of Regional and Local Peace and Development Agendas (SPADe)</strong> and <strong>Mindanao Peace and Development (MinPAD) RISE Program</strong> of the <strong>Mindanao Development Authority (MinDA)</strong> in partnership with:
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2 text-xs">
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10">
-            <span className="text-oat/60 block mb-1 uppercase font-bold text-[10px]">Registration Body</span>
-            <span className="font-bold text-cream">Intellectual Property Office of the Philippines (IPOPHL)</span>
-          </div>
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10">
-            <span className="text-oat/60 block mb-1 uppercase font-bold text-[10px]">Registration Date</span>
-            <span className="font-bold text-cream">February 27, 2026</span>
-          </div>
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10">
-            <span className="text-oat/60 block mb-1 uppercase font-bold text-[10px]">Trademark Class</span>
-            <span className="font-bold text-cream">Class 40 (Roasting & Processing)</span>
-          </div>
-          <div className="bg-white/5 p-4 rounded-2xl border border-white/10">
-            <span className="text-oat/60 block mb-1 uppercase font-bold text-[10px]">Term of Validity</span>
-            <span className="font-bold text-cream">10 Years (Until 2036)</span>
-          </div>
+        {/* Partner list pills */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 pt-2 text-xs">
+          {[
+            { label: "MinDA", sub: "Mindanao Dev Authority" },
+            { label: "DILG", sub: "Dept. of Interior & Local Govt." },
+            { label: "European Union", sub: "Co-funded by EU" },
+            { label: "German Cooperation", sub: "German Federal Ministry (BMZ)" },
+            { label: "GIZ", sub: "Implemented by GIZ GmbH" },
+            { label: "MCN", sub: "Mindanao Coffee Network" }
+          ].map((partner, i) => (
+            <div key={i} className="bg-white/5 p-3.5 rounded-xl border border-white/10 text-center">
+              <span className="font-bold text-cream block text-sm">{partner.label}</span>
+              <span className="text-[10px] text-oat/60 mt-0.5 block leading-tight">{partner.sub}</span>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Institutional Leadership & Recognition */}
+      {/* Leadership & Official Contact Details */}
       <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
         <div className="pb-4 border-b border-border">
           <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
-            Institutional Leadership
+            Direct Contacts
           </span>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-            Key People & Institutional Support
+            Leadership & Inquiries
           </h2>
           <p className="text-sm text-muted mt-1">
-            Recognized by Ateneo de Davao University in connection with ADDC3LL's development and trademark registration:
+            For more information, research proposals, and potential collaborations, connect directly with the laboratory coordinators:
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-2xl bg-oat border border-border space-y-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-roast block">
-              Laboratory Leadership & Development
-            </span>
-            <h4 className="font-serif font-bold text-xl text-espresso">
-              Engr. Francis Christopher C. Bation
-            </h4>
-            <p className="text-xs sm:text-sm text-muted leading-relaxed">
-              Formally commended by Ateneo de Davao University for his leadership, dedication, and work with the ADDC3LL laboratory team in advancing coffee and cacao initiatives.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-5 rounded-2xl bg-oat border border-border space-y-1">
+            <span className="text-[10px] uppercase font-bold text-roast tracking-wider block">Lab Central Inquiries</span>
+            <h4 className="font-serif font-bold text-base text-espresso">ADDC3LL General Desk</h4>
+            <a 
+              href="mailto:addc3ll@addu.edu.ph" 
+              className="text-xs sm:text-sm font-semibold text-roast hover:underline flex items-center gap-1.5 pt-1"
+            >
+              <Mail size={14} /> addc3ll@addu.edu.ph
+            </a>
           </div>
 
-          <div className="p-6 rounded-2xl bg-oat border border-border space-y-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-roast block">
-              Intellectual Property & Technology Support
-            </span>
-            <h4 className="font-serif font-bold text-xl text-espresso">
-              Mr. Ed Ivan M. Bardoquillo
-            </h4>
-            <p className="text-xs sm:text-sm text-muted leading-relaxed">
-              Officer-in-Charge of the ADDU Innovation and Technology Support Office (ITSO), who facilitated the formal IPOPHL trademark registration and institutional protection for ADDC3LL.
-            </p>
+          <div className="p-5 rounded-2xl bg-oat border border-border space-y-1">
+            <span className="text-[10px] uppercase font-bold text-roast tracking-wider block">Project Coordinator</span>
+            <h4 className="font-serif font-bold text-base text-espresso">Dr. Mark Anthony Rotor</h4>
+            <a 
+              href="mailto:marrotor@addu.edu.ph" 
+              className="text-xs sm:text-sm font-semibold text-roast hover:underline flex items-center gap-1.5 pt-1"
+            >
+              <Mail size={14} /> marrotor@addu.edu.ph
+            </a>
+          </div>
+
+          <div className="p-5 rounded-2xl bg-oat border border-border space-y-1">
+            <span className="text-[10px] uppercase font-bold text-roast tracking-wider block">Project Lead & Engineering</span>
+            <h4 className="font-serif font-bold text-base text-espresso">Engr. Francis Christopher Bation</h4>
+            <a 
+              href="mailto:fccbation@addu.edu.ph" 
+              className="text-xs sm:text-sm font-semibold text-roast hover:underline flex items-center gap-1.5 pt-1"
+            >
+              <Mail size={14} /> fccbation@addu.edu.ph
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Partnership: ADDU & Mindanao Coffee Network */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-4">
-        <span className="text-xs font-bold uppercase tracking-widest text-roast block">
-          Strategic Partnership
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-          Ateneo de Davao University & Mindanao Coffee Network
-        </h2>
-        <p className="text-sm text-muted leading-relaxed">
-          ADDC3LL operates as a synergy between <strong>Ateneo de Davao University (ADDU)</strong>—a Filipino, Catholic, Jesuit university in Davao City committed to research and inclusive social transformation—and the <strong>Mindanao Coffee Network (MCN)</strong>, connecting university faculty and students directly with producers, cooperatives, and coffee-sector stakeholders.
-        </p>
-        <div className="flex flex-wrap gap-4 pt-2 text-xs">
-          <div className="flex items-center gap-1.5 text-roast font-semibold">
-            <MapPin size={15} /> Marilog District, Davao City
-          </div>
-          <div className="flex items-center gap-1.5 text-muted">
-            • Focus: Coffee (Roasting & Processing) and Cacao
-          </div>
-        </div>
-      </section>
-
-      {/* Inquiry & Connect Section */}
+      {/* Interactive Collaboration Form */}
       <section className="bg-oat rounded-3xl border border-border p-6 sm:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <div className="lg:col-span-5 space-y-4">
             <div className="inline-flex items-center gap-2 bg-cream text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-border">
-              <Sparkles size={14} /> Connect With The Laboratory
+              <Sparkles size={14} /> Connect With The Lab
             </div>
             <h2 className="text-3xl font-serif font-bold text-espresso">
-              Inquire or Connect with ADDC3LL
+              Send an Academic or Producer Inquiry
             </h2>
             <p className="text-sm text-muted leading-relaxed">
-              Whether you are an agricultural producer, student researcher, or coffee and cacao industry partner, reach out to connect with the laboratory team.
+              Whether you are an agricultural producer, student researcher, or coffee and cacao industry partner, leave a message below.
             </p>
 
             <div className="pt-4 space-y-3 text-xs text-muted">
@@ -272,8 +475,8 @@ export default function AboutAddc3llView() {
                 <span>ADDC3LL Facility, Marilog, Davao City, Philippines</span>
               </div>
               <div className="flex items-start gap-2">
-                <Info size={16} className="text-roast shrink-0 mt-0.5" />
-                <span>Ateneo de Davao University & Mindanao Coffee Network Partnership</span>
+                <Mail size={16} className="text-roast shrink-0 mt-0.5" />
+                <span>Central: addc3ll@addu.edu.ph</span>
               </div>
             </div>
           </div>
@@ -314,11 +517,11 @@ export default function AboutAddc3llView() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-bold uppercase tracking-wider text-muted block mb-1">
-                      Organization / Farm / Affiliation
+                      Organization / Farm / Department
                     </label>
                     <input
                       type="text"
-                      placeholder="e.g. AdDU Student / Coffee Producer"
+                      placeholder="e.g. AdDU Student / Farming Cooperative"
                       value={formData.organization}
                       onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
                       className="w-full px-4 py-2.5 rounded-xl border border-border bg-oat text-espresso text-sm focus:outline-none focus:ring-2 focus:ring-roast"
@@ -333,11 +536,11 @@ export default function AboutAddc3llView() {
                       onChange={(e) => setFormData({ ...formData, areaOfInterest: e.target.value })}
                       className="w-full px-3 py-2.5 rounded-xl border border-border bg-oat text-espresso text-sm focus:outline-none focus:ring-2 focus:ring-roast"
                     >
-                      <option>Academic Research & Innovation</option>
-                      <option>Training & Technology Transfer</option>
-                      <option>Agro-enterprise Development</option>
-                      <option>Coffee Roasting & Processing Inquiry</option>
-                      <option>General Institutional Inquiries</option>
+                      <option>Coffee Processing & Fermentation Studies</option>
+                      <option>Cacao Fermentation & Quality Control</option>
+                      <option>Student Thesis & Graduate Research Extension</option>
+                      <option>Farmer Training & Workshop Inquiries</option>
+                      <option>Institutional & Multi-Agency Partnerships</option>
                     </select>
                   </div>
                 </div>
@@ -348,7 +551,7 @@ export default function AboutAddc3llView() {
                   </label>
                   <textarea
                     rows={4}
-                    placeholder="Describe your inquiry, project, or collaboration interest..."
+                    placeholder="Describe your inquiry, research proposal, or partnership..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl border border-border bg-oat text-espresso text-sm focus:outline-none focus:ring-2 focus:ring-roast"
@@ -372,7 +575,7 @@ export default function AboutAddc3llView() {
                   Inquiry Received
                 </h3>
                 <p className="text-sm text-muted max-w-sm mx-auto leading-relaxed">
-                  Thank you, <strong>{formData.name}</strong>! Your message regarding <em>{formData.areaOfInterest}</em> has been submitted. The ADDC3LL team will follow up via email at <strong>{formData.email}</strong>.
+                  Thank you, <strong>{formData.name}</strong>! Your inquiry regarding <em>{formData.areaOfInterest}</em> has been logged. You may also contact Dr. Mark Anthony Rotor (marrotor@addu.edu.ph) or Engr. Francis Christopher Bation (fccbation@addu.edu.ph).
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}

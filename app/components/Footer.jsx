@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Coffee, MapPin, Heart, BookOpen, ExternalLink } from 'lucide-react';
+import { Coffee, MapPin, Heart, BookOpen, ExternalLink, Mail } from 'lucide-react';
 
 export default function Footer({ setCurrentView, onOpenGlossary }) {
   return (
@@ -26,9 +26,17 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
               A comprehensive open-access coffee education and sensory learning platform developed for the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL).
             </p>
 
-            <div className="flex items-center gap-2 text-xs text-oat/60 pt-2">
-              <MapPin size={15} className="text-caramel shrink-0" />
-              <span>Marilog, Davao City · Ateneo de Davao University & Mindanao Coffee Network</span>
+            <div className="space-y-1.5 pt-2 text-xs text-oat/60">
+              <div className="flex items-center gap-2">
+                <MapPin size={15} className="text-caramel shrink-0" />
+                <span>Marilog, Davao City · Ateneo de Davao University & Mindanao Coffee Network</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail size={15} className="text-caramel shrink-0" />
+                <a href="mailto:addc3ll@addu.edu.ph" className="hover:text-cream transition-colors">
+                  addc3ll@addu.edu.ph
+                </a>
+              </div>
             </div>
           </div>
 

@@ -357,6 +357,25 @@ export default function HomeView({
             Read Institutional Brief
           </button>
         </div>
+
+        {/* Institutional Partnership Strip */}
+        <div className="pt-3 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-muted">
+          <div>
+            <span className="font-bold text-espresso text-[11px] uppercase tracking-wider block">
+              Supported Under SPADe & MinPAD RISE
+            </span>
+            <p className="text-muted text-[11px] mt-0.5">
+              MinDA · DILG · European Union · German Cooperation (BMZ) via GIZ · Mindanao Coffee Network
+            </p>
+          </div>
+          <button
+            onClick={() => setCurrentView('about')}
+            className="text-roast hover:text-espresso font-semibold flex items-center gap-1 shrink-0 text-xs transition-colors"
+          >
+            <span>View All Objectives & Partners</span>
+            <ArrowRight size={13} />
+          </button>
+        </div>
       </section>
 
       {/* Quick University & Lab Metrics */}
