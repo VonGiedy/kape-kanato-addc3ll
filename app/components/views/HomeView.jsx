@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Sprout, Droplets, MapPin, Award, 
   ArrowRight, Sparkles, Sliders, Coffee, GraduationCap, 
-  FlaskConical, Users, Info, HelpCircle
+  FlaskConical, Users, Info, HelpCircle, ChevronLeft, ChevronRight
 } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
 import { PHILIPPINE_REGIONS } from '../../data/regions';
@@ -15,7 +15,83 @@ export default function HomeView({
   onOpenTimerDirectly, 
   onOpenGlossary 
 }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [selectedProfileId, setSelectedProfileId] = useState('mt-apo');
+
+  const HERO_SLIDES = [
+    {
+      id: "slide-1",
+      badge: "Ateneo de Davao University · ADDC3LL",
+      badgeIcon: GraduationCap,
+      headline: "Connecting Research, Innovation & Agricultural Enterprise",
+      subtitle: "University Collaboration in Marilog, Davao City",
+      description: "The Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL) is a university initiative in partnership with the Mindanao Coffee Network. Based in Marilog, Davao City, the laboratory connects academic research with grassroots innovation in Mindanao's coffee and cacao sectors.",
+      primaryCta: { label: "About the ADDC3LL Lab", view: "about", icon: FlaskConical },
+      secondaryCta: { label: "Interactive Brewing Lab", view: "brewing", icon: Sliders },
+      tertiaryCta: { label: "Mindanao Terroir", view: "philippine", icon: MapPin },
+      imgUrl: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=1600",
+      accentTag: "Marilog, Davao City · Academic Innovation Hub"
+    },
+    {
+      id: "slide-2",
+      badge: "Mindanao Terroir · 70–80% National Output",
+      badgeIcon: MapPin,
+      headline: "From Mount Apo to Bukidnon: Celebrating Our Heritage",
+      subtitle: "Indigenous Agroforestry & Specialty Cultivars",
+      description: "Mindanao is the coffee heartland of the Philippines. We champion sustainable highland agroforestry, post-harvest fermentation trials, and direct community partnerships alongside indigenous Bagobo-Tagabawa and Talaandig farming cooperatives across Mount Apo, Bukidnon, and Sultan Kudarat.",
+      primaryCta: { label: "Explore Mindanao Origins", view: "philippine", icon: MapPin },
+      secondaryCta: { label: "Farm to Cup Stepper", view: "farm", icon: Sprout },
+      tertiaryCta: { label: "Species Comparison", view: "fundamentals", icon: BookOpen },
+      imgUrl: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=1600",
+      accentTag: "Indigenous Cooperatives · Volcanic Terroir"
+    },
+    {
+      id: "slide-3",
+      badge: "Specialty Education & Barista Tools",
+      badgeIcon: Coffee,
+      headline: "Precision Brewing Lab for Ateneans & Enthusiasts",
+      subtitle: "Interactive Digital Tools & Extraction Dynamics",
+      description: "Demystifying coffee extraction science with live digital tools. Master coffee-to-water ratios with our real-time calculator, follow step-by-step timed pours with Web Audio chimes, and explore espresso liquid proportions right from campus or home.",
+      primaryCta: { label: "Launch Brewing Lab", view: "brewing", icon: Sliders },
+      secondaryCta: { label: "Take Coffee IQ Quiz", view: "quiz", icon: Award },
+      tertiaryCta: { label: "Coffee Fundamentals", view: "fundamentals", icon: BookOpen },
+      imgUrl: "https://images.unsplash.com/photo-1495474472207-464a8d9cb90a?auto=format&fit=crop&q=80&w=1600",
+      accentTag: "Live Timers · Ratio Calculators · Science of Extraction"
+    },
+    {
+      id: "slide-4",
+      badge: "Intellectual Property Milestone · IPOPHL",
+      badgeIcon: Award,
+      headline: "Official 10-Year Trademark: Roasting & Processing",
+      subtitle: "Class 40 Registered Trademark (2026–2036)",
+      description: "On February 27, 2026, ADDC3LL achieved registered trademark status with the Intellectual Property Office of the Philippines (IPOPHL) under Class 40 for coffee roasting and processing, valid for ten years. Formally announced by Ateneo de Davao University on May 11, 2026.",
+      primaryCta: { label: "Read Institutional Milestone", view: "about", icon: FlaskConical },
+      secondaryCta: { label: "A–Z Coffee Glossary", action: "glossary", icon: HelpCircle },
+      tertiaryCta: { label: "Origin Profiles", view: "philippine", icon: MapPin },
+      imgUrl: "https://images.unsplash.com/photo-1518832553480-cd0e625ed3e6?auto=format&fit=crop&q=80&w=1600",
+      accentTag: "Class 40 Trademark · 2026–2036 Protection"
+    }
+  ];
+
+  // Auto-advance carousel every 7 seconds, pause on hover
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, [isPaused, HERO_SLIDES.length]);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length);
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+  };
+
+  const activeSlide = HERO_SLIDES[currentSlide];
 
   const FEATURED_PROFILES = [
     {
@@ -69,58 +145,142 @@ export default function HomeView({
   return (
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Hero Section: Centered on Ateneo de Davao & ADDC3LL */}
-      <section className="relative bg-espresso text-cream rounded-3xl overflow-hidden shadow-2xl mt-4 border border-border/20">
-        <div className="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/90 to-transparent z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&q=80&w=1400" 
-          alt="Mindanao coffee harvest" 
-          className="absolute inset-0 w-full h-full object-cover opacity-35 scale-105"
-        />
+      {/* Interactive Hero Carousel: ADDC3LL & Mindanao Coffee Stories */}
+      <section 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        className="relative bg-espresso text-cream rounded-3xl overflow-hidden shadow-2xl mt-4 border border-border/20 group select-none min-h-[560px] sm:min-h-[520px] flex flex-col justify-between"
+      >
+        {/* Background Images Cross-Fade */}
+        {HERO_SLIDES.map((slide, idx) => (
+          <div
+            key={slide.id}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? 'opacity-35 scale-105' : 'opacity-0 pointer-events-none'
+            }`}
+          >
+            <img 
+              src={slide.imgUrl} 
+              alt={slide.headline} 
+              className="w-full h-full object-cover transition-transform duration-700"
+            />
+          </div>
+        ))}
 
-        <div className="relative z-20 px-6 sm:px-12 py-16 sm:py-24 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-roast/90 text-cream text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider shadow-sm border border-cream/20">
-            <GraduationCap size={15} className="text-caramel" />
-            Proposed Prototype · ADDC3LL
+        {/* Dark Vignette Overlay for Crisp Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/90 to-espresso/60 z-10" />
+
+        {/* Main Content Area */}
+        <div className="relative z-20 px-6 sm:px-12 pt-10 sm:pt-14 pb-4 max-w-3xl flex-1 flex flex-col justify-center">
+          {/* Top Pill / Badge */}
+          <div className="flex items-center justify-between gap-4 mb-5">
+            <div className="inline-flex items-center gap-2 bg-roast/90 text-cream text-xs font-semibold px-3.5 py-1.5 rounded-full uppercase tracking-wider shadow-sm border border-cream/20 animate-in fade-in duration-300">
+              <activeSlide.badgeIcon size={14} className="text-caramel" />
+              <span>{activeSlide.badge}</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-oat/60 tracking-wider">
+              <span className="text-caramel font-bold">{String(currentSlide + 1).padStart(2, '0')}</span>
+              <span>/</span>
+              <span>{String(HERO_SLIDES.length).padStart(2, '0')}</span>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight text-cream">
-            Connecting Research, Innovation & Agricultural Enterprise
+          {/* Headline */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold mb-4 leading-tight text-cream min-h-[70px] sm:min-h-[110px] animate-in fade-in slide-in-from-left-2 duration-300">
+            {activeSlide.headline}
           </h1>
 
-          <p className="text-lg sm:text-xl text-oat/90 mb-8 leading-relaxed font-sans font-normal">
-            The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> is a university initiative in partnership with the <strong>Mindanao Coffee Network</strong>. Based in <strong>Marilog, Davao City</strong>, the laboratory connects academic research with grassroots innovation in Mindanao's coffee and cacao sectors.
+          {/* Description */}
+          <p className="text-sm sm:text-base lg:text-lg text-oat/90 mb-7 leading-relaxed font-sans font-normal min-h-[70px] sm:min-h-[85px] animate-in fade-in slide-in-from-left-1 duration-300">
+            {activeSlide.description}
           </p>
 
-          <div className="flex flex-wrap gap-3">
-            <button 
-              onClick={() => setCurrentView('about')}
-              className="bg-cream hover:bg-oat text-espresso px-6 sm:px-7 py-3.5 rounded-2xl font-bold transition-all shadow-lg hover:scale-105 flex items-center gap-2 text-sm"
-            >
-              <FlaskConical size={18} className="text-roast" />
-              <span>About the ADDC3LL Lab</span>
-            </button>
-            <button 
-              onClick={() => setCurrentView('brewing')} 
-              className="bg-caramel hover:bg-amber-500 text-espresso px-6 sm:px-7 py-3.5 rounded-2xl font-bold transition-all shadow-lg hover:scale-105 flex items-center gap-2 text-sm"
-            >
-              <Sliders size={18} />
-              <span>Interactive Brewing Lab</span>
-            </button>
-            <button 
-              onClick={() => setCurrentView('philippine')} 
-              className="bg-espresso/60 backdrop-blur-md border border-cream/30 text-cream hover:bg-espresso px-5 sm:px-6 py-3.5 rounded-2xl font-bold transition-all hover:scale-105 flex items-center gap-2 text-sm"
-            >
-              <MapPin size={18} className="text-caramel" />
-              <span>Mindanao Terroir</span>
-            </button>
+          {/* Call to Action Buttons */}
+          <div className="flex flex-wrap gap-2.5 sm:gap-3">
+            {activeSlide.primaryCta && (
+              <button 
+                onClick={() => setCurrentView(activeSlide.primaryCta.view)}
+                className="bg-cream hover:bg-oat text-espresso px-6 sm:px-7 py-3 rounded-2xl font-bold transition-all shadow-lg hover:scale-105 flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <activeSlide.primaryCta.icon size={16} className="text-roast" />
+                <span>{activeSlide.primaryCta.label}</span>
+              </button>
+            )}
+
+            {activeSlide.secondaryCta && (
+              <button 
+                onClick={() => {
+                  if (activeSlide.secondaryCta.action === 'glossary') {
+                    onOpenGlossary();
+                  } else if (activeSlide.secondaryCta.view) {
+                    setCurrentView(activeSlide.secondaryCta.view);
+                  }
+                }}
+                className="bg-caramel hover:bg-amber-500 text-espresso px-5 sm:px-6 py-3 rounded-2xl font-bold transition-all shadow-lg hover:scale-105 flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <activeSlide.secondaryCta.icon size={16} />
+                <span>{activeSlide.secondaryCta.label}</span>
+              </button>
+            )}
+
+            {activeSlide.tertiaryCta && (
+              <button 
+                onClick={() => setCurrentView(activeSlide.tertiaryCta.view)}
+                className="bg-espresso/60 backdrop-blur-md border border-cream/30 text-cream hover:bg-espresso px-4 sm:px-5 py-3 rounded-2xl font-bold transition-all hover:scale-105 flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <activeSlide.tertiaryCta.icon size={16} className="text-caramel" />
+                <span>{activeSlide.tertiaryCta.label}</span>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Carousel Bottom Control Bar */}
+        <div className="relative z-20 px-6 sm:px-12 py-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-oat/70">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+            <span className="text-[11px] sm:text-xs">
+              <strong>Academic Prototype:</strong> {activeSlide.accentTag}
+            </span>
           </div>
 
-          <div className="mt-8 pt-4 border-t border-white/10 text-xs text-oat/70 flex items-center gap-2">
-            <Info size={14} className="text-caramel shrink-0" />
-            <span>
-              <strong>Prototype Disclaimer:</strong> This webapp is an independent student & community prototype for ADDC3LL, not the official Ateneo de Davao university portal.
-            </span>
+          {/* Dots Indicator & Navigation Chevrons */}
+          <div className="flex items-center gap-3 self-end sm:self-auto">
+            {/* Step Indicators */}
+            <div className="flex items-center gap-1.5">
+              {HERO_SLIDES.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentSlide 
+                      ? 'w-7 bg-caramel' 
+                      : 'w-2 bg-white/30 hover:bg-white/60'
+                  }`}
+                  aria-label={`Jump to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Previous & Next Slide Arrow Buttons */}
+            <div className="flex items-center gap-1 border-l border-white/15 pl-2.5">
+              <button
+                onClick={handlePrevSlide}
+                className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/20 border border-white/15 flex items-center justify-center text-cream transition-colors"
+                title="Previous slide"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft size={15} />
+              </button>
+              <button
+                onClick={handleNextSlide}
+                className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/20 border border-white/15 flex items-center justify-center text-cream transition-colors"
+                title="Next slide"
+                aria-label="Next slide"
+              >
+                <ChevronRight size={15} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
