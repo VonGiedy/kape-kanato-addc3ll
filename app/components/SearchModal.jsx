@@ -231,11 +231,11 @@ export default function SearchModal({
                 </div>
               )}
 
-              {/* Community Dispatches */}
+              {/* ADDC3LL Achievements */}
               {matchedCommunity.length > 0 && (
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-muted block mb-2">
-                    Community & Dispatches ({matchedCommunity.length})
+                    ADDC3LL Achievements ({matchedCommunity.length})
                   </span>
                   <div className="space-y-2">
                     {matchedCommunity.map((p) => (
@@ -249,7 +249,7 @@ export default function SearchModal({
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-lg bg-roast text-cream flex items-center justify-center shrink-0">
-                            <Users size={15} className="text-caramel" />
+                            <Award size={15} className="text-caramel" />
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
@@ -257,7 +257,7 @@ export default function SearchModal({
                                 {p.title}
                               </h5>
                               <span className="text-[10px] bg-oat text-roast px-2 py-0.5 rounded-full font-semibold border border-border hidden sm:inline">
-                                {p.category}
+                                {p.awardBadge || p.category}
                               </span>
                             </div>
                             <p className="text-xs text-muted line-clamp-1">{p.summary}</p>

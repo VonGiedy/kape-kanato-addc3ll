@@ -17,7 +17,7 @@ export default function Navbar({
     { id: 'farm', label: 'Farm to Cup' },
     { id: 'brewing', label: 'Brewing' },
     { id: 'philippine', label: 'Origins' },
-    { id: 'community', label: 'Community' },
+    { id: 'community', label: 'Achievements' },
     { id: 'quiz', label: 'Quiz' },
     { id: 'about', label: 'About' },
   ];

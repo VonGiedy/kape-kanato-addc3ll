@@ -131,7 +131,7 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
               </li>
               <li>
                 <button onClick={() => setCurrentView('community')} className="hover:text-cream transition-colors text-caramel font-medium">
-                  Community & Blue Beans Society
+                  Laboratory Achievements
                 </button>
               </li>
             </ul>

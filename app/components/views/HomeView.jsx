@@ -638,19 +638,19 @@ export default function HomeView({
         </div>
       </section>
 
-      {/* Community Dispatches & Accolades Preview */}
+      {/* Community Achievements & Accolades Preview */}
       <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-border">
           <div>
             <div className="inline-flex items-center gap-2 bg-oat text-roast text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-1 border border-border">
-              <Users size={13} />
-              <span>People & Field Milestones</span>
+              <Award size={13} />
+              <span>Official Laboratory Records</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-              Community & Field Dispatches
+              ADDC3LL Achievements & Milestones
             </h2>
             <p className="text-sm text-muted mt-1 max-w-xl">
-              Celebrating research conferences, championship podiums, student achievements, and farmer field days from ADDC3LL and Blue Beans Society.
+              Celebrating national brewing championships, research keynotes, and student-farmer partnerships from ADDC3LL and Blue Beans Society.
             </p>
           </div>
 
@@ -658,7 +658,7 @@ export default function HomeView({
             onClick={() => setCurrentView('community')}
             className="bg-roast hover:bg-espresso text-cream text-xs font-bold px-5 py-2.5 rounded-xl transition-all shadow-sm flex items-center gap-2 self-start sm:self-auto shrink-0"
           >
-            <span>View All Dispatches</span>
+            <span>View All Achievements</span>
             <ArrowRight size={14} />
           </button>
         </div>
@@ -678,8 +678,8 @@ export default function HomeView({
                       alt={post.images[0].caption}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-3 left-3 bg-espresso/80 backdrop-blur-sm text-cream text-[10px] uppercase font-bold px-2.5 py-1 rounded-full">
-                      {post.category}
+                    <div className="absolute top-3 left-3 bg-espresso/90 backdrop-blur-sm text-cream text-[10px] uppercase font-bold px-2.5 py-1 rounded-full border border-white/10">
+                      {post.awardBadge || post.category}
                     </div>
                   </div>
                 )}
@@ -700,7 +700,7 @@ export default function HomeView({
               <div className="p-5 pt-0 flex items-center justify-between text-xs font-bold text-roast border-t border-border/40 mt-2">
                 <span className="text-[11px] font-normal text-muted">{post.date}</span>
                 <span className="flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
-                  Read Dispatch <ArrowRight size={12} />
+                  View Record <ArrowRight size={12} />
                 </span>
               </div>
             </div>
