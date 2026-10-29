@@ -4,20 +4,20 @@ import { Coffee, MapPin, Heart, BookOpen, ExternalLink, Mail } from 'lucide-reac
 
 export default function Footer({ setCurrentView, onOpenGlossary }) {
   return (
-    <footer className="bg-espresso text-cream border-t border-white/10 mt-20 pt-16 pb-12">
+    <footer className="bg-ateneo-navy text-cream border-t border-white/10 mt-20 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
           {/* Brand info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-roast text-cream rounded-2xl flex items-center justify-center">
-                <Coffee size={22} className="text-caramel" />
+              <div className="w-10 h-10 bg-ateneo-blue text-cream rounded-2xl flex items-center justify-center shadow-md">
+                <Coffee size={22} className="text-cream" />
               </div>
               <div>
                 <span className="text-2xl font-serif font-bold text-cream block">Kape Kanato</span>
-                <span className="text-xs uppercase font-bold text-caramel tracking-wider">
-                  ADDC3LL Initiative
+                <span className="text-xs uppercase font-bold text-ateneo-light tracking-wider">
+                  ADDC3LL Initiative · Ateneo de Davao
                 </span>
               </div>
             </div>
@@ -26,13 +26,13 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
               A comprehensive open-access coffee education and sensory learning platform developed for the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL).
             </p>
 
-            <div className="space-y-1.5 pt-2 text-xs text-oat/60">
+            <div className="space-y-1.5 pt-2 text-xs text-oat/70">
               <div className="flex items-center gap-2">
-                <MapPin size={15} className="text-caramel shrink-0" />
+                <MapPin size={15} className="text-ateneo-light shrink-0" />
                 <span>Marilog, Davao City · Ateneo de Davao University & Mindanao Coffee Network</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail size={15} className="text-caramel shrink-0" />
+                <Mail size={15} className="text-ateneo-light shrink-0" />
                 <a href="mailto:addc3ll@addu.edu.ph" className="hover:text-cream transition-colors">
                   addc3ll@addu.edu.ph
                 </a>
@@ -42,7 +42,7 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
 
           {/* Quick Learning Links */}
           <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-caramel">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-ateneo-light">
               Learning Guides
             </h5>
             <ul className="space-y-2 text-sm text-oat/80">
@@ -71,7 +71,7 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
 
           {/* Interactive Tools */}
           <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-caramel">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-ateneo-light">
               Interactive Tools
             </h5>
             <ul className="space-y-2 text-sm text-oat/80">
@@ -100,7 +100,7 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
 
           {/* Heritage & Lab */}
           <div className="space-y-3">
-            <h5 className="text-xs font-bold uppercase tracking-wider text-caramel">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-ateneo-light">
               Philippine Coffee
             </h5>
             <ul className="space-y-2 text-sm text-oat/80">

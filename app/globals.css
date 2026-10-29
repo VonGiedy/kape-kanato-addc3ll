@@ -8,12 +8,17 @@ html {
 
 body {
   background-color: #F7F2EA;
-  color: #2B1D16;
+  color: #3C2A1E;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom coffee-themed scrollbar */
+::selection {
+  background-color: #1E2F3C;
+  color: #FFFCF7;
+}
+
+/* Custom coffee & Ateneo-themed scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -24,10 +29,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8C7B5;
+  background: #D5CBC0;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A5138;
+  background: #37586F;
 }

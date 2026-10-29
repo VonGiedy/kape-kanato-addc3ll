@@ -29,11 +29,11 @@ export default function Navbar({
 
   return (
     <header className="sticky top-0 z-40">
-      {/* Top Prototype Disclaimer Strip */}
-      <div className="bg-espresso text-oat/90 text-[11px] py-1.5 px-4 text-center border-b border-white/10 font-normal tracking-wide flex items-center justify-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+      {/* Top Prototype Disclaimer Strip with Ateneo Navy & Light Accents */}
+      <div className="bg-ateneo-navy text-oat/90 text-[11px] py-1.5 px-4 text-center border-b border-white/10 font-normal tracking-wide flex items-center justify-center gap-2">
+        <span className="w-1.5 h-1.5 rounded-full bg-ateneo-light shrink-0" />
         <span>
-          <strong className="text-cream font-semibold">Educational Prototype:</strong> Proposed concept for ADDC3LL · Not an official university website.
+          <strong className="text-cream font-semibold">Educational Prototype:</strong> Proposed concept for ADDC3LL · Ateneo de Davao University
         </span>
       </div>
 
@@ -43,20 +43,20 @@ export default function Navbar({
           {/* Brand Wordmark (Clean & Editorial) */}
           <div 
             onClick={() => handleNav('home')}
-            className="flex items-center gap-2 cursor-pointer group shrink-0 select-none py-2"
+            className="flex items-center gap-2.5 cursor-pointer group shrink-0 select-none py-2"
           >
             <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors">
               Kape Kanato
             </span>
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-muted/70 group-hover:text-roast transition-colors hidden sm:inline">
+            <span className="text-[10px] tracking-widest uppercase font-bold text-ateneo-blue group-hover:text-ateneo-navy transition-colors hidden sm:inline">
               ADDC3LL
             </span>
-            <span className="text-[9px] uppercase tracking-wider font-bold bg-oat text-roast px-2 py-0.5 rounded-full border border-border/80">
+            <span className="text-[9px] uppercase tracking-wider font-bold bg-ateneo-navy/5 text-ateneo-blue px-2 py-0.5 rounded-full border border-ateneo-blue/20">
               Prototype
             </span>
           </div>
 
-        {/* Desktop Navigation Links (Minimalist Typography, No Cluttering Icons) */}
+        {/* Desktop Navigation Links (Minimalist Typography) */}
         <div className="hidden lg:flex items-center gap-7">
           {navItems.map((item) => {
             const isActive = currentView === item.id;
@@ -66,13 +66,13 @@ export default function Navbar({
                 onClick={() => handleNav(item.id)}
                 className={`text-sm tracking-wide transition-all relative py-1 ${
                   isActive
-                    ? 'text-espresso font-semibold'
+                    ? 'text-ateneo-navy font-semibold'
                     : 'text-muted hover:text-espresso font-normal'
                 }`}
               >
                 {item.label}
                 {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-roast rounded-full animate-in fade-in duration-200" />
+                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-ateneo-blue rounded-full animate-in fade-in duration-200" />
                 )}
               </button>
             );
