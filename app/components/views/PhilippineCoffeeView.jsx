@@ -5,7 +5,6 @@ import {
   Coffee, Droplets, Calendar, Award, ChevronRight, X 
 } from 'lucide-react';
 import { PHILIPPINE_REGIONS } from '../../data/regions';
-import FlavorWheelExplorer from '../FlavorWheelExplorer';
 
 export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
   const [selectedIsland, setSelectedIsland] = useState('All');
@@ -141,11 +140,6 @@ export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
             </div>
           ))}
         </div>
-      </section>
-
-      {/* Flavor Matcher Integration */}
-      <section>
-        <FlavorWheelExplorer onSelectRegion={(r) => setActiveRegionModal(r)} />
       </section>
 
       {/* Region Detail Modal */}
