@@ -40,11 +40,11 @@ export default function CommunityView() {
     <div className="space-y-12 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
       
       {/* Editorial Header */}
-      <div className="bg-ateneo-navy text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-white/10 relative overflow-hidden">
+      <div className="bg-espresso text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
-              <Trophy size={13} className="text-ateneo-light" />
+            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
+              <Trophy size={13} />
               <span>Official University Record</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-3">
@@ -66,33 +66,33 @@ export default function CommunityView() {
 
         {/* Quick Stats Grid */}
         <div className="relative z-10 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs">
-            <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-              <span className="text-ateneo-light font-bold block text-lg font-serif">PCQC 2026</span>
-              <span className="text-oat/70 text-[11px]">2nd Runner-Up & Top 15</span>
-            </div>
-            <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-              <span className="text-ateneo-light font-bold block text-lg font-serif">DARCES 2026</span>
-              <span className="text-oat/70 text-[11px]">3rd Runner-Up Duo Brewing</span>
-            </div>
-            <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-              <span className="text-ateneo-light font-bold block text-lg font-serif">74th PSME</span>
-              <span className="text-oat/70 text-[11px]">National Keynote Speaker</span>
-            </div>
-            <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-              <span className="text-ateneo-light font-bold block text-lg font-serif">Class 40</span>
-              <span className="text-oat/70 text-[11px]">IPOPHL 10-Yr Trademark</span>
-            </div>
+          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+            <span className="text-caramel font-bold block text-lg font-serif">PCQC 2026</span>
+            <span className="text-oat/70 text-[11px]">2nd Runner-Up & Top 15</span>
+          </div>
+          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+            <span className="text-caramel font-bold block text-lg font-serif">DARCES 2026</span>
+            <span className="text-oat/70 text-[11px]">3rd Runner-Up Duo Brewing</span>
+          </div>
+          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+            <span className="text-caramel font-bold block text-lg font-serif">74th PSME</span>
+            <span className="text-oat/70 text-[11px]">National Keynote Speaker</span>
+          </div>
+          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
+            <span className="text-caramel font-bold block text-lg font-serif">Class 40</span>
+            <span className="text-oat/70 text-[11px]">IPOPHL 10-Yr Trademark</span>
           </div>
         </div>
+      </div>
 
-      {/* Blue Beans Society Synergy Note (Ateneo Blue Palette) */}
-      <div className="bg-ateneo-navy/5 border border-ateneo-blue/20 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      {/* Blue Beans Society Synergy Note */}
+      <div className="bg-oat border border-border p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 rounded-xl bg-ateneo-navy text-cream flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-            <GraduationCap size={20} className="text-ateneo-light" />
+          <div className="w-10 h-10 rounded-xl bg-roast text-cream flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+            <GraduationCap size={20} className="text-caramel" />
           </div>
           <div>
-            <h4 className="font-serif font-bold text-sm text-ateneo-navy">
+            <h4 className="font-serif font-bold text-sm text-espresso">
               Blue Beans Society (BBS) · Ateneo de Davao University
             </h4>
             <p className="text-xs text-muted leading-relaxed mt-0.5">
@@ -104,7 +104,7 @@ export default function CommunityView() {
           href="https://www.facebook.com/profile.php?id=61585832537772"
           target="_blank"
           rel="noreferrer"
-          className="text-xs font-bold text-cream hover:bg-ateneo-navy bg-ateneo-blue px-4 py-2 rounded-xl shadow-sm shrink-0 flex items-center gap-1.5 transition-colors"
+          className="text-xs font-bold text-roast hover:text-espresso bg-cream px-3.5 py-2 rounded-xl border border-border shrink-0 flex items-center gap-1.5 transition-colors"
         >
           <span>Blue Beans Society</span>
           <ExternalLink size={13} />

@@ -723,10 +723,10 @@ export default function HomeView({
       </section>
 
       {/* Origin Spotlight: Mount Apo & AdDU Extension */}
-      <section className="bg-ateneo-navy text-cream rounded-3xl overflow-hidden p-8 sm:p-12 relative border border-white/10 shadow-xl">
+      <section className="bg-espresso text-cream rounded-3xl overflow-hidden p-8 sm:p-12 relative border border-border/20 shadow-xl">
         <div className="max-w-2xl relative z-10 space-y-4">
-          <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            Ateneo Extension & Mindanao Heritage
+          <div className="inline-flex items-center gap-2 bg-roast text-cream text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            Mindanao Heritage & Community Extension
           </div>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold">
             Mount Apo & Indigenous Farmer Cooperatives
@@ -747,7 +747,7 @@ export default function HomeView({
             </button>
             <button
               onClick={() => setCurrentView('about')}
-              className="bg-white/10 border border-white/20 hover:bg-white/20 text-cream font-bold px-5 py-3 rounded-xl transition-all text-sm"
+              className="bg-espresso/50 border border-white/20 hover:bg-white/10 text-cream font-bold px-5 py-3 rounded-xl transition-all text-sm"
             >
               Contact ADDC3LL
             </button>

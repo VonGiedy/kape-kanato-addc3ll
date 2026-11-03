@@ -109,10 +109,10 @@ export default function AboutAddc3llView() {
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
       
       {/* Header Banner */}
-      <div className="bg-ateneo-navy text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-white/10 relative overflow-hidden">
+      <div className="bg-espresso text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
               Ateneo de Davao University Initiative · Prototype
             </div>
             <h1 className="text-4xl sm:text-5xl font-serif font-bold">
@@ -384,9 +384,9 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Partnership and Institutional Support */}
-      <section className="bg-ateneo-navy text-cream rounded-3xl p-8 sm:p-12 border border-white/10 shadow-xl space-y-6">
+      <section className="bg-espresso text-cream rounded-3xl p-8 sm:p-12 border border-border/20 shadow-xl space-y-6">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
             Institutional Backing
           </div>
           <h2 className="text-2xl sm:text-3xl font-serif font-bold">
