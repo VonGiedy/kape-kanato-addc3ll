@@ -288,16 +288,26 @@ export default function HomeView({
 
       {/* ADDC3LL Core Focus Pillars */}
       <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-8">
-        <div className="max-w-3xl">
-          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-2">
-            Our Published Focus
-          </span>
-          <h2 className="text-3xl font-serif font-bold text-espresso leading-snug">
-            Research, Training & Agro-enterprise in Mindanao
-          </h2>
-          <p className="text-muted text-sm sm:text-base mt-2 leading-relaxed">
-            Through its focus on training, technology transfer, and agro-enterprise development, ADDC3LL serves as an active link between academic knowledge and the practical needs of the agricultural community.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-2">
+          <div className="max-w-2xl">
+            <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-2">
+              Our Published Focus
+            </span>
+            <h2 className="text-3xl font-serif font-bold text-espresso leading-snug">
+              Research, Training & Agro-enterprise in Mindanao
+            </h2>
+            <p className="text-muted text-sm sm:text-base mt-2 leading-relaxed">
+              Through its focus on training, technology transfer, and agro-enterprise development, ADDC3LL serves as an active link between academic knowledge and the practical needs of the agricultural community.
+            </p>
+          </div>
+
+          <div className="hidden sm:flex shrink-0 p-2 bg-white rounded-2xl border border-border shadow-xs w-24 h-24 items-center justify-center">
+            <img 
+              src="/addc3ll-logo.jpg" 
+              alt="ADDC3LL Official Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
@@ -598,8 +608,12 @@ export default function HomeView({
             className="group bg-cream rounded-3xl p-6 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 bg-stone-800 text-cream rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                <FlaskConical size={24} className="text-caramel" />
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform border border-border/80 shadow-xs p-1">
+                <img 
+                  src="/addc3ll-logo.jpg" 
+                  alt="ADDC3LL Official Logo" 
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h3 className="text-xl font-serif font-bold text-espresso mb-2 group-hover:text-roast transition-colors">
                 ADDC3LL Facilities & Lab

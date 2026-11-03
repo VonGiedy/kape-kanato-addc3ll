@@ -3,6 +3,10 @@ import './globals.css'
 export const metadata = {
   title: 'Kape Kanato | ADDC3LL Prototype',
   description: 'A proposed Coffee Education Website for the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory',
+  icons: {
+    icon: '/addc3ll-logo.jpg',
+    apple: '/addc3ll-logo.jpg',
+  },
 }
 
 export default function RootLayout({ children }) {

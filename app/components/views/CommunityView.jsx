@@ -41,20 +41,31 @@ export default function CommunityView() {
       
       {/* Editorial Header */}
       <div className="bg-ateneo-navy text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-white/10 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
-            <Trophy size={13} className="text-ateneo-light" />
-            <span>Official University Record</span>
+        <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
+              <Trophy size={13} className="text-ateneo-light" />
+              <span>Official University Record</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-3">
+              ADDC3LL Achievements & Milestones
+            </h1>
+            <p className="text-base sm:text-lg text-oat/90 leading-relaxed font-normal">
+              A permanent archive of academic keynotes, national brewing competition podiums, farmer-academe field triumphs, and institutional milestones achieved by the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL) and student partners.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-3">
-            ADDC3LL Achievements & Milestones
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed font-normal">
-            A permanent archive of academic keynotes, national brewing competition podiums, farmer-academe field triumphs, and institutional milestones achieved by the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL) and student partners.
-          </p>
 
-          {/* Quick Stats Grid */}
-          <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs">
+          <div className="hidden sm:flex shrink-0 p-2.5 bg-white rounded-2xl border border-white/20 shadow-md w-24 h-24 items-center justify-center">
+            <img 
+              src="/addc3ll-logo.jpg" 
+              alt="ADDC3LL Official Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Quick Stats Grid */}
+        <div className="relative z-10 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs">
             <div className="p-3 bg-white/5 rounded-xl border border-white/10">
               <span className="text-ateneo-light font-bold block text-lg font-serif">PCQC 2026</span>
               <span className="text-oat/70 text-[11px]">2nd Runner-Up & Top 15</span>
@@ -73,7 +84,6 @@ export default function CommunityView() {
             </div>
           </div>
         </div>
-      </div>
 
       {/* Blue Beans Society Synergy Note (Ateneo Blue Palette) */}
       <div className="bg-ateneo-navy/5 border border-ateneo-blue/20 p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

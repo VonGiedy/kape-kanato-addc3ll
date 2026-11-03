@@ -40,20 +40,31 @@ export default function Navbar({
       <nav className="bg-cream/90 backdrop-blur-md border-b border-border/60 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between">
           
-          {/* Brand Wordmark (Clean & Editorial) */}
+          {/* Brand Wordmark & Official ADDC3LL Logo */}
           <div 
             onClick={() => handleNav('home')}
-            className="flex items-center gap-2.5 cursor-pointer group shrink-0 select-none py-2"
+            className="flex items-center gap-3 cursor-pointer group shrink-0 select-none py-1.5"
           >
-            <span className="font-serif text-xl sm:text-2xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors">
-              Kape Kanato
-            </span>
-            <span className="text-[10px] tracking-widest uppercase font-bold text-ateneo-blue group-hover:text-ateneo-navy transition-colors hidden sm:inline">
-              ADDC3LL
-            </span>
-            <span className="text-[9px] uppercase tracking-wider font-bold bg-ateneo-navy/5 text-ateneo-blue px-2 py-0.5 rounded-full border border-ateneo-blue/20">
-              Prototype
-            </span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-white border border-border/70 shadow-xs p-0.5 shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
+              <img 
+                src="/addc3ll-logo.jpg" 
+                alt="ADDC3LL Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex flex-col">
+              <div className="flex items-center gap-1.5">
+                <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors leading-tight">
+                  Kape Kanato
+                </span>
+                <span className="text-[9px] uppercase tracking-wider font-bold bg-ateneo-navy/5 text-ateneo-blue px-2 py-0.5 rounded-full border border-ateneo-blue/20">
+                  Prototype
+                </span>
+              </div>
+              <span className="text-[10px] tracking-widest uppercase font-bold text-ateneo-blue group-hover:text-ateneo-navy transition-colors">
+                ADDC3LL · Ateneo de Davao
+              </span>
+            </div>
           </div>
 
         {/* Desktop Navigation Links (Minimalist Typography) */}

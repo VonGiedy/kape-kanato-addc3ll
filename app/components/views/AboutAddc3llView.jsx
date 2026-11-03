@@ -109,17 +109,29 @@ export default function AboutAddc3llView() {
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
       
       {/* Header Banner */}
-      <div className="bg-ateneo-navy text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-white/10 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
-            Ateneo de Davao University Initiative · Prototype
+      <div className="bg-ateneo-navy text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-white/10 relative overflow-hidden">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="max-w-2xl space-y-4">
+            <div className="inline-flex items-center gap-2 bg-ateneo-blue text-cream text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
+              Ateneo de Davao University Initiative · Prototype
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-serif font-bold">
+              About ADDC3LL
+            </h1>
+            <p className="text-base sm:text-lg text-oat/90 leading-relaxed font-normal">
+              The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> is a university-based research, training, and innovation facility located in <strong>Marilog, Davao City</strong>. It connects academic science with grassroots development across Mindanao's coffee and cacao sectors.
+            </p>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            About ADDC3LL
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> is a university-based research, training, and innovation facility located in <strong>Marilog, Davao City</strong>. It connects academic science with grassroots development across Mindanao's coffee and cacao sectors.
-          </p>
+
+          <div className="shrink-0 flex items-center justify-center">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-white p-3.5 shadow-xl border border-white/20 flex items-center justify-center">
+              <img 
+                src="/addc3ll-logo.jpg" 
+                alt="ADDC3LL Official Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          </div>
         </div>
       </div>
 

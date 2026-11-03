@@ -11,8 +11,12 @@ export default function Footer({ setCurrentView, onOpenGlossary }) {
           {/* Brand info (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-ateneo-blue text-cream rounded-2xl flex items-center justify-center shadow-md">
-                <Coffee size={22} className="text-cream" />
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-md p-1 shrink-0 border border-white/20">
+                <img 
+                  src="/addc3ll-logo.jpg" 
+                  alt="ADDC3LL Official Logo" 
+                  className="w-full h-full object-contain rounded-xl"
+                />
               </div>
               <div>
                 <span className="text-2xl font-serif font-bold text-cream block">Kape Kanato</span>
