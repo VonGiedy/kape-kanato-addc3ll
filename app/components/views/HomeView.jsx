@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Sprout, Droplets, MapPin, Award, 
   ArrowRight, Sparkles, Sliders, Coffee, GraduationCap, 
-  FlaskConical, Users, Info, HelpCircle, ChevronLeft, ChevronRight
+  FlaskConical, Users, Info, HelpCircle, ChevronLeft, ChevronRight,
+  Layers, Flame, Rotate3d
 } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
 import { PHILIPPINE_REGIONS } from '../../data/regions';
@@ -497,6 +498,89 @@ export default function HomeView({
         </div>
       </section>
 
+      {/* Interactive 3D Simulators & Science Suite Highlight */}
+      <section className="bg-gradient-to-r from-espresso via-[#3A2418] to-espresso text-cream rounded-3xl p-6 sm:p-10 border border-border/20 shadow-xl overflow-hidden relative">
+        {/* Subtle Ambient Radial Glow */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-caramel/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-white/10">
+              <Rotate3d size={14} />
+              <span>New Interactive 3D Suite</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-cream leading-tight">
+              Explore Coffee Physics & Biology in Real-Time 3D
+            </h2>
+            <p className="text-oat/90 text-sm sm:text-base leading-relaxed">
+              Step into interactive 3D models developed to demonstrate the science of coffee: rotate and explode the 6 anatomical layers of a coffee cherry, monitor real-time thermodynamic curves in our simulated roasting drum with First Crack audio, and watch microbial fermentation kinetics.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <button
+                onClick={() => setCurrentView('fundamentals')}
+                className="bg-cream hover:bg-oat text-espresso font-bold px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <Layers size={16} className="text-roast" />
+                <span>3D Coffee Bean Viewer</span>
+              </button>
+              <button
+                onClick={() => setCurrentView('farm')}
+                className="bg-caramel hover:bg-amber-500 text-espresso font-bold px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2 text-xs sm:text-sm"
+              >
+                <Flame size={16} />
+                <span>3D Roaster Simulator</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3 text-xs">
+            <div 
+              onClick={() => setCurrentView('fundamentals')}
+              className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 hover:border-caramel/50 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-red-600/30 text-red-400 flex items-center justify-center">
+                <Layers size={18} />
+              </div>
+              <h4 className="font-bold text-cream group-hover:text-caramel transition-colors">6-Layer Anatomy</h4>
+              <p className="text-[11px] text-stone-300">Explode exocarp, pulp, mucilage, parchment, silverskin & seed.</p>
+            </div>
+
+            <div 
+              onClick={() => setCurrentView('farm')}
+              className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 hover:border-caramel/50 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-amber-500/30 text-amber-300 flex items-center justify-center">
+                <Flame size={18} />
+              </div>
+              <h4 className="font-bold text-cream group-hover:text-caramel transition-colors">Roast Drum 3D</h4>
+              <p className="text-[11px] text-stone-300">First Crack acoustic pops, S-curve graphs, and drop cupping cards.</p>
+            </div>
+
+            <div 
+              onClick={() => setCurrentView('farm')}
+              className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 hover:border-caramel/50 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-blue-500/30 text-blue-300 flex items-center justify-center">
+                <FlaskConical size={18} />
+              </div>
+              <h4 className="font-bold text-cream group-hover:text-caramel transition-colors">Fermentation Lab</h4>
+              <p className="text-[11px] text-stone-300">Live pH decline, Brix sugar curves, and CO₂ bubbling tanks.</p>
+            </div>
+
+            <div 
+              onClick={() => setCurrentView('brewing')}
+              className="bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 hover:border-caramel/50 transition-all cursor-pointer space-y-2 group"
+            >
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/30 text-emerald-300 flex items-center justify-center">
+                <Sliders size={18} />
+              </div>
+              <h4 className="font-bold text-cream group-hover:text-caramel transition-colors">Brew Calculator</h4>
+              <p className="text-[11px] text-stone-300">Live ratio adjustment & timed pour assistant with audio cues.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Core Learning Modules Grid */}
       <section>
         <div className="flex items-center justify-between mb-8">
@@ -520,18 +604,23 @@ export default function HomeView({
             className="group bg-cream rounded-3xl p-6 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 bg-espresso text-cream rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                <BookOpen size={24} className="text-caramel" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 bg-espresso text-cream rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <BookOpen size={24} className="text-caramel" />
+                </div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full border border-amber-200">
+                  <Rotate3d size={12} /> 3D Bean Model
+                </span>
               </div>
               <h3 className="text-xl font-serif font-bold text-espresso mb-2 group-hover:text-roast transition-colors">
                 Coffee Fundamentals
               </h3>
               <p className="text-sm text-muted leading-relaxed">
-                Cherry anatomy, comparing the 4 commercial species grown in the Philippines, and the rich history of coffee from Ethiopia to Batangas.
+                Interactive 3D exploded cherry & bean anatomy model with 360° orbit rotation, 4 commercial species comparison, and botanical history.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-bold text-roast group-hover:text-espresso">
-              <span>Explore Fundamentals</span>
+              <span>Launch 3D Explorer</span>
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
@@ -542,18 +631,23 @@ export default function HomeView({
             className="group bg-cream rounded-3xl p-6 border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
           >
             <div>
-              <div className="w-12 h-12 bg-roast text-cream rounded-2xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform">
-                <Sprout size={24} className="text-caramel" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 bg-roast text-cream rounded-2xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <Sprout size={24} className="text-caramel" />
+                </div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-amber-100 text-amber-900 px-2.5 py-1 rounded-full border border-amber-200">
+                  <Flame size={12} /> 3D Roaster Sim
+                </span>
               </div>
               <h3 className="text-xl font-serif font-bold text-espresso mb-2 group-hover:text-roast transition-colors">
                 Farm to Cup Process
               </h3>
               <p className="text-sm text-muted leading-relaxed">
-                Interactive stepper tracing tree cultivation, selective picking, washed vs natural vs anaerobic fermentation, and roasting thermodynamics.
+                Interactive 3D roasting drum with First Crack audio & popping particles, post-harvest fermentation tank kinetics, and 6-stage production stepper.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-bold text-roast group-hover:text-espresso">
-              <span>View Processing Journey</span>
+              <span>Launch Roaster & Lab</span>
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </div>
           </div>

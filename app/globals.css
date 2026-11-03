@@ -31,3 +31,44 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #7A5138;
 }
+
+/* 3D Perspective and Animation Helpers */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.animate-float {
+  animation: floatSubtle 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}

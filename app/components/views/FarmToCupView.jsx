@@ -5,6 +5,8 @@ import {
   ArrowRight, Sparkles, Sliders, ChevronRight, BookOpen 
 } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
+import Roaster3DSimulator from '../interactive/Roaster3DSimulator';
+import FermentationSimulator from '../interactive/FermentationSimulator';
 
 const FARM_STEPS = [
   {
@@ -87,36 +89,8 @@ const FARM_STEPS = [
   }
 ];
 
-const ROAST_PROFILES = [
-  {
-    name: "Light Roast (City Roast)",
-    temp: "~196°C – 205°C",
-    colorBg: "bg-amber-700",
-    beanColor: "#A66E38",
-    characteristics: "High origin acidity, floral aromatics, sparkling citrus, tea-like body, zero roast bitterness.",
-    bestFor: "Specialty Arabica (Mt. Apo, Benguet) for pour-over V60."
-  },
-  {
-    name: "Medium Roast (City+ / Full City)",
-    temp: "~210°C – 218°C",
-    colorBg: "bg-amber-900",
-    beanColor: "#6F4426",
-    characteristics: "Balanced acidity and body, rich caramel, brown sugar, milk chocolate, rounded mouthfeel.",
-    bestFor: "Versatile espresso, Aeropress, drip brew."
-  },
-  {
-    name: "Dark Roast (French / Vienna Roast)",
-    temp: "~225°C+",
-    colorBg: "bg-stone-900",
-    beanColor: "#33221A",
-    characteristics: "Low acidity, heavy syrupy body, bittersweet dark chocolate, smoky pine, surface oil emergence.",
-    bestFor: "Kapeng Barako, traditional Kape Kaldero, iced coffee with milk."
-  }
-];
-
 export default function FarmToCupView({ onOpenArticle }) {
   const [activeStep, setActiveStep] = useState(0);
-  const [selectedRoast, setSelectedRoast] = useState(0);
 
   const currentStep = FARM_STEPS[activeStep];
 
@@ -249,70 +223,14 @@ export default function FarmToCupView({ onOpenArticle }) {
         </div>
       </section>
 
-      {/* Interactive Roast Degree Visualizer */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm">
-        <div className="pb-6 border-b border-border">
-          <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-            <Flame size={14} /> Roastery Thermodynamics
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-            Roast Profiles & Sensory Characteristics
-          </h2>
-          <p className="text-sm text-muted mt-1">
-            How heat development alters acidity, sweetness, and mouthfeel across light, medium, and dark roast profiles.
-          </p>
-        </div>
+      {/* Interactive Post-Harvest Fermentation Simulator */}
+      <section>
+        <FermentationSimulator onOpenArticle={onOpenArticle} />
+      </section>
 
-        {/* Roast level selector */}
-        <div className="mt-6 flex flex-wrap gap-3">
-          {ROAST_PROFILES.map((rp, idx) => (
-            <button
-              key={idx}
-              onClick={() => setSelectedRoast(idx)}
-              className={`px-5 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
-                selectedRoast === idx
-                  ? 'bg-espresso text-cream shadow-md scale-105'
-                  : 'bg-oat text-muted hover:text-espresso border border-border'
-              }`}
-            >
-              <div 
-                className="w-4 h-4 rounded-full border border-white/30"
-                style={{ backgroundColor: rp.beanColor }}
-              />
-              <span>{rp.name}</span>
-            </button>
-          ))}
-        </div>
-
-        {/* Roast Inspection Details */}
-        <div className="mt-8 bg-oat p-6 sm:p-8 rounded-3xl border border-border grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div className="md:col-span-4 flex flex-col items-center justify-center p-6 bg-cream rounded-2xl border border-border">
-            <div 
-              className="w-24 h-24 rounded-full shadow-lg border-4 border-espresso/20 transition-all duration-300"
-              style={{ backgroundColor: ROAST_PROFILES[selectedRoast].beanColor }}
-            />
-            <span className="font-mono font-bold text-espresso text-base mt-4">
-              {ROAST_PROFILES[selectedRoast].temp}
-            </span>
-            <span className="text-[11px] uppercase tracking-wider font-semibold text-muted">
-              Drop Temperature
-            </span>
-          </div>
-
-          <div className="md:col-span-8 space-y-4">
-            <h3 className="text-2xl font-serif font-bold text-espresso">
-              {ROAST_PROFILES[selectedRoast].name}
-            </h3>
-            <p className="text-sm sm:text-base text-muted leading-relaxed">
-              <strong className="text-espresso">Sensory Characteristics: </strong> 
-              {ROAST_PROFILES[selectedRoast].characteristics}
-            </p>
-            <div className="p-4 bg-cream rounded-xl border border-border text-xs sm:text-sm">
-              <strong className="text-roast block mb-1">Recommended Usage:</strong>
-              <p className="text-muted">{ROAST_PROFILES[selectedRoast].bestFor}</p>
-            </div>
-          </div>
-        </div>
+      {/* Interactive 3D Drum Roaster & Thermodynamics Simulator */}
+      <section>
+        <Roaster3DSimulator onOpenArticle={onOpenArticle} />
       </section>
 
       {/* Featured Articles for Farm to Cup */}

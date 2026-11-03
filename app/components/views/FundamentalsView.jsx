@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { BookOpen, ArrowRight, Check, Sparkles, Layers, Info } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
+import CoffeeBean3DViewer from '../interactive/CoffeeBean3DViewer';
 
 const SPECIES_COMPARISON = [
   {
@@ -47,40 +48,6 @@ const SPECIES_COMPARISON = [
 ];
 
 export default function FundamentalsView({ onOpenArticle }) {
-  const [selectedLayer, setSelectedLayer] = useState('seed');
-
-  const cherryLayers = {
-    skin: {
-      name: "Exocarp (Outer Skin)",
-      color: "bg-red-600",
-      description: "The protective exterior skin. Turns bright red, yellow, or orange at peak ripeness, indicating high sugar content."
-    },
-    pulp: {
-      name: "Mesocarp (Fleshy Fruit Pulp)",
-      color: "bg-amber-500",
-      description: "The sweet, nutrient-rich flesh surrounding the seeds. In natural processing, this fruit pulp dries directly on the seed."
-    },
-    mucilage: {
-      name: "Pectin / Mucilage Layer",
-      color: "bg-amber-300 text-espresso",
-      description: "The sticky, sugar-dense coating. The key actor in fermentation during washed, honey, and anaerobic processing."
-    },
-    parchment: {
-      name: "Endocarp (Parchment Hull)",
-      color: "bg-stone-300 text-espresso",
-      description: "A tough cellulose hull that shields the green seed during resting and storage before final hulling."
-    },
-    silverskin: {
-      name: "Spermoderm (Silverskin)",
-      color: "bg-stone-200 text-espresso",
-      description: "A thin inner membrane hugging the seed. During roasting, this flakes off as 'chaff'."
-    },
-    seed: {
-      name: "Endosperm (The Coffee Seed / Bean)",
-      color: "bg-roast",
-      description: "The actual green seed containing caffeine, chlorogenic acids, sucrose, and lipids that transform into roasted coffee."
-    }
-  };
 
   return (
     <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
@@ -160,70 +127,9 @@ export default function FundamentalsView({ onOpenArticle }) {
         </div>
       </section>
 
-      {/* Interactive Anatomy of the Coffee Cherry */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm">
-        <div className="pb-6 border-b border-border">
-          <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-            <Layers size={14} /> Interactive Botanical Explorer
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-            Anatomy of the Coffee Cherry
-          </h2>
-          <p className="text-sm text-muted mt-1">
-            Click on each botanical layer of the fruit to inspect its biological function and significance during post-harvest processing.
-          </p>
-        </div>
-
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Layer Selector buttons */}
-          <div className="lg:col-span-5 space-y-2">
-            {Object.entries(cherryLayers).map(([key, info]) => {
-              const isSelected = selectedLayer === key;
-              return (
-                <button
-                  key={key}
-                  onClick={() => setSelectedLayer(key)}
-                  className={`w-full p-3.5 rounded-2xl text-left border transition-all flex items-center justify-between ${
-                    isSelected
-                      ? 'bg-espresso text-cream border-espresso shadow-md'
-                      : 'bg-oat hover:bg-border/60 text-espresso border-border'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-4 h-4 rounded-full ${info.color} shadow-sm border border-black/20`} />
-                    <span className="font-bold text-sm">{info.name}</span>
-                  </div>
-                  {isSelected && <ArrowRight size={16} className="text-caramel" />}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Detailed Layer Inspection Card */}
-          <div className="lg:col-span-7 bg-oat p-8 rounded-3xl border border-border flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-roast block mb-1">
-                Botanical Cross-Section
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-                {cherryLayers[selectedLayer].name}
-              </h3>
-              <p className="text-base text-muted leading-relaxed mt-4">
-                {cherryLayers[selectedLayer].description}
-              </p>
-            </div>
-
-            <div className="mt-8 pt-4 border-t border-border flex items-center justify-between text-xs text-muted">
-              <span>Botanical Genus: <strong className="text-espresso">Coffea</strong></span>
-              <button 
-                onClick={() => onOpenArticle('what-is-coffee')}
-                className="font-bold text-roast hover:underline flex items-center gap-1"
-              >
-                Read deep-dive <ArrowRight size={14} />
-              </button>
-            </div>
-          </div>
-        </div>
+      {/* Interactive 3D Anatomy of the Coffee Cherry & Bean */}
+      <section>
+        <CoffeeBean3DViewer onOpenArticle={onOpenArticle} />
       </section>
 
       {/* Four Commercial Species Comparison Table */}
