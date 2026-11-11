@@ -1,3 +1,4 @@
+// app/components/Navbar.jsx
 "use client";
 import React, { useState } from 'react';
 import { Search, Bookmark, HelpCircle, Menu, X } from 'lucide-react';
@@ -13,6 +14,7 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
+    { id: 'home', label: 'Home' },
     { id: 'fundamentals', label: 'Fundamentals' },
     { id: 'farm', label: 'Farm to Cup' },
     { id: 'brewing', label: 'Brewing' },
@@ -28,167 +30,146 @@ export default function Navbar({
   };
 
   return (
-    <header className="sticky top-0 z-40">
-      {/* Top Prototype Disclaimer Strip */}
-      <div className="bg-espresso text-oat/90 text-[11px] py-1.5 px-4 text-center border-b border-white/10 font-normal tracking-wide flex items-center justify-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
-        <span>
-          <strong className="text-cream font-semibold">Educational Prototype:</strong> Proposed concept for ADDC3LL · Ateneo de Davao University
-        </span>
-      </div>
-
-      <nav className="bg-cream/90 backdrop-blur-md border-b border-border/60 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 sm:h-18 flex items-center justify-between">
-          
-          {/* Brand Wordmark & Official ADDC3LL Logo */}
-          <div 
-            onClick={() => handleNav('home')}
-            className="flex items-center gap-3 cursor-pointer group shrink-0 select-none py-1.5"
-          >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden bg-white border border-border/70 shadow-xs p-0.5 shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center">
-              <img 
-                src="/addc3ll-logo.jpg" 
-                alt="ADDC3LL Logo" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-serif text-lg sm:text-xl font-bold tracking-tight text-espresso group-hover:text-roast transition-colors leading-tight">
-                  Kape Kanato
-                </span>
-                <span className="text-[9px] uppercase tracking-wider font-bold bg-oat text-roast px-2 py-0.5 rounded-full border border-border/80">
-                  Prototype
-                </span>
-              </div>
-              <span className="text-[10px] tracking-widest uppercase font-semibold text-muted/80 group-hover:text-roast transition-colors">
-                ADDC3LL · Ateneo de Davao
-              </span>
-            </div>
+    <header className="fixed top-3.5 sm:top-5 inset-x-0 z-50 pointer-events-none px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+        
+        {/* Left Floating Brand Pill */}
+        <button 
+          onClick={() => handleNav('home')}
+          className="pointer-events-auto flex items-center gap-2.5 bg-[#1B110A]/75 hover:bg-[#1B110A]/90 backdrop-blur-xl border border-white/15 hover:border-caramel/45 rounded-full pl-1.5 pr-4 py-1.5 shadow-[0_12px_36px_rgba(0,0,0,0.38)] transition-all group shrink-0 select-none"
+        >
+          <div className="w-8 h-8 rounded-full overflow-hidden bg-white p-0.5 shrink-0 group-hover:scale-105 transition-transform flex items-center justify-center shadow-sm">
+            <img 
+              src="/addc3ll-logo.jpg" 
+              alt="ADDC3LL Official Logo" 
+              className="w-full h-full object-contain rounded-full"
+            />
           </div>
+          <div className="flex items-center gap-2">
+            <span className="font-display text-xs sm:text-sm font-black uppercase tracking-[-0.02em] text-white leading-none">
+              Kape Kanato
+            </span>
+            <span className="hidden sm:inline-block text-[9px] uppercase tracking-[0.14em] font-mono font-bold bg-white/12 text-caramel px-2 py-0.5 rounded-full border border-white/10">
+              ADDC3LL
+            </span>
+          </div>
+        </button>
 
-        {/* Desktop Navigation Links (Minimalist Typography) */}
-        <div className="hidden lg:flex items-center gap-7">
+        {/* Center Floating Navigation Pill Dock (Desktop) */}
+        <nav className="hidden lg:flex pointer-events-auto items-center gap-1 bg-[#1B110A]/75 backdrop-blur-xl border border-white/15 rounded-full p-1.5 shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
           {navItems.map((item) => {
             const isActive = currentView === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleNav(item.id)}
-                className={`text-sm tracking-wide transition-all relative py-1 ${
+                className={`px-3.5 py-1.5 rounded-full text-xs tracking-wide transition-all ${
                   isActive
-                    ? 'text-espresso font-semibold'
-                    : 'text-muted hover:text-espresso font-normal'
+                    ? 'bg-white text-espresso font-bold shadow-sm'
+                    : 'text-white/75 hover:text-white hover:bg-white/10 font-medium'
                 }`}
               >
                 {item.label}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-roast rounded-full animate-in fade-in duration-200" />
-                )}
               </button>
             );
           })}
-        </div>
+        </nav>
 
-        {/* Right Actions: Minimalist Icons with Generous Breathing Room */}
-        <div className="flex items-center gap-1 sm:gap-2">
-          {/* Quick Search */}
+        {/* Right Floating Action Pills */}
+        <div className="pointer-events-auto flex items-center gap-2 shrink-0">
+          {/* Search Pill */}
           <button
             onClick={onOpenSearch}
-            className="p-2 text-muted hover:text-espresso transition-colors rounded-lg hover:bg-oat/70"
-            title="Search guide (⌘K)"
+            className="h-10 sm:h-11 px-3.5 rounded-full bg-[#1B110A]/75 hover:bg-[#1B110A]/90 backdrop-blur-xl border border-white/15 hover:border-caramel/45 text-white/85 hover:text-white shadow-[0_12px_36px_rgba(0,0,0,0.38)] flex items-center gap-2 text-xs font-semibold transition-all"
+            title="Search archive & curriculum (⌘K)"
             aria-label="Search"
           >
-            <Search size={18} strokeWidth={1.75} />
+            <Search size={14} strokeWidth={2.2} className="text-caramel" />
+            <span className="hidden xl:inline text-[11px]">Search</span>
+            <kbd className="hidden sm:inline-block font-mono text-[10px] bg-white/10 px-1.5 py-0.5 rounded-full border border-white/10 text-white/80">
+              ⌘K
+            </kbd>
           </button>
 
-          {/* Coffee Glossary */}
+          {/* Coffee Glossary Circle Pill */}
           <button
             onClick={onOpenGlossary}
-            className="p-2 text-muted hover:text-espresso transition-colors rounded-lg hover:bg-oat/70 hidden sm:flex items-center"
+            className="hidden sm:flex w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#1B110A]/75 hover:bg-[#1B110A]/90 backdrop-blur-xl border border-white/15 hover:border-caramel/45 text-white/85 hover:text-white shadow-[0_12px_36px_rgba(0,0,0,0.38)] items-center justify-center transition-all"
             title="Coffee Glossary A–Z"
             aria-label="Glossary"
           >
-            <HelpCircle size={18} strokeWidth={1.75} />
+            <HelpCircle size={17} strokeWidth={2} />
           </button>
 
-          {/* Saved Bookmarks */}
+          {/* Saved Bookmarks Circle Pill */}
           {bookmarkCount > 0 && (
             <button
               onClick={onOpenBookmarks}
-              className="p-2 text-roast hover:text-espresso transition-colors rounded-lg hover:bg-oat/70 relative"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#1B110A]/75 hover:bg-[#1B110A]/90 backdrop-blur-xl border border-white/15 hover:border-caramel/45 text-caramel shadow-[0_12px_36px_rgba(0,0,0,0.38)] flex items-center justify-center transition-all relative"
               title="View Bookmarked Articles"
               aria-label="Saved Bookmarks"
             >
-              <Bookmark size={18} strokeWidth={2} className="fill-current text-roast" />
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-caramel ring-2 ring-cream" />
+              <Bookmark size={16} strokeWidth={2.2} className="fill-current" />
+              <span className="absolute top-2 right-2 w-2 h-2 rounded-full bg-white ring-2 ring-[#1B110A]" />
             </button>
           )}
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Pill */}
           <button 
-            className="lg:hidden p-2 text-espresso hover:text-roast transition-colors rounded-lg hover:bg-oat ml-1"
+            className="lg:hidden w-10 h-10 rounded-full bg-[#1B110A]/75 hover:bg-[#1B110A]/90 backdrop-blur-xl border border-white/15 text-white flex items-center justify-center shadow-[0_12px_36px_rgba(0,0,0,0.38)] transition-all"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
+            {mobileMenuOpen ? <X size={18} strokeWidth={2.2} /> : <Menu size={18} strokeWidth={2.2} />}
           </button>
         </div>
 
       </div>
 
-      {/* Mobile Drawer (Clean & Minimalist) */}
+      {/* Floating Mobile Drawer Card */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bg-cream/98 backdrop-blur-xl border-b border-border shadow-lg px-6 py-6 animate-in slide-in-from-top-1 duration-200">
-          <div className="flex flex-col space-y-4">
-            <button
-              onClick={() => handleNav('home')}
-              className={`text-left text-base tracking-wide transition-colors ${
-                currentView === 'home' ? 'text-espresso font-semibold' : 'text-muted'
-              }`}
-            >
-              Overview
-            </button>
-
+        <div className="lg:hidden pointer-events-auto mt-3 mx-auto max-w-md bg-[#1B110A]/95 backdrop-blur-2xl border border-white/15 rounded-3xl shadow-2xl p-5 animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-wrap gap-2">
             {navItems.map((item) => {
               const isActive = currentView === item.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className={`text-left text-base tracking-wide transition-colors ${
-                    isActive ? 'text-espresso font-semibold' : 'text-muted'
+                  className={`px-4 py-2 rounded-full text-xs tracking-wide transition-all ${
+                    isActive
+                      ? 'bg-white text-espresso font-bold shadow-sm'
+                      : 'bg-white/10 text-white/80 hover:text-white hover:bg-white/15 font-medium'
                   }`}
                 >
                   {item.label}
                 </button>
               );
             })}
+          </div>
 
-            <div className="pt-4 border-t border-border/60 flex items-center justify-between text-xs text-muted">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenSearch();
-                }}
-                className="flex items-center gap-1.5 hover:text-espresso font-medium py-1"
-              >
-                <Search size={14} /> Search guide
-              </button>
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenGlossary();
-                }}
-                className="flex items-center gap-1.5 hover:text-espresso font-medium py-1"
-              >
-                <HelpCircle size={14} /> A–Z Glossary
-              </button>
-            </div>
+          <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/75">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenSearch();
+              }}
+              className="flex items-center gap-1.5 hover:text-white font-semibold py-1"
+            >
+              <Search size={14} className="text-caramel" /> Search Studio
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenGlossary();
+              }}
+              className="flex items-center gap-1.5 hover:text-white font-semibold py-1"
+            >
+              <HelpCircle size={14} className="text-caramel" /> A–Z Glossary
+            </button>
           </div>
         </div>
       )}
-      </nav>
     </header>
   );
 }

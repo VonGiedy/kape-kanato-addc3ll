@@ -8,7 +8,7 @@ export default function DrinkVisualizer() {
   const drink = SPECIALTY_DRINKS.find(d => d.id === selectedDrinkId) || SPECIALTY_DRINKS[0];
 
   return (
-    <div className="bg-cream rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
+    <div className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-6 border-b border-border">
         <div>
           <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
@@ -49,17 +49,22 @@ export default function DrinkVisualizer() {
         {/* Animated Glass Cup (5 cols) */}
         <div className="md:col-span-5 flex flex-col items-center justify-center p-6 bg-oat/50 rounded-3xl border border-border">
           <div className="relative w-44 h-64 border-4 border-espresso/70 rounded-b-3xl rounded-t-lg bg-cream/60 overflow-hidden flex flex-col-reverse shadow-inner p-1">
-            {drink.layers.map((layer, idx) => (
-              <div
-                key={idx}
-                style={{ height: `${layer.percent}%` }}
-                className={`${layer.color} w-full transition-all duration-500 flex items-center justify-center text-[10px] font-bold text-cream/90 shadow-sm border-t border-black/10`}
-              >
-                <span className="truncate px-1 drop-shadow-sm text-espresso/90">
-                  {layer.name} ({layer.percent}%)
-                </span>
-              </div>
-            ))}
+            {drink.layers.map((layer, idx) => {
+              const isDarkLayer = ['bg-espresso', 'bg-roast', 'bg-stone-900', 'bg-amber-600'].includes(layer.color);
+              return (
+                <div
+                  key={idx}
+                  style={{ height: `${layer.percent}%` }}
+                  className={`${layer.color} w-full transition-all duration-500 flex items-center justify-center text-[10px] font-bold shadow-sm border-t border-black/10 ${
+                    isDarkLayer ? 'text-cream' : 'text-espresso'
+                  }`}
+                >
+                  <span className="truncate px-1.5 drop-shadow-xs">
+                    {layer.name} ({layer.percent}%)
+                  </span>
+                </div>
+              );
+            })}
           </div>
           <div className="w-48 h-3 bg-border rounded-full mt-3 shadow-sm" />
           <span className="text-[11px] font-mono font-bold text-muted mt-2 uppercase tracking-wider">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, BookOpen, MapPin, Droplets, HelpCircle, ArrowRight, Users } from 'lucide-react';
+import { Search, X, BookOpen, MapPin, Droplets, HelpCircle, ArrowRight, Users, Award } from 'lucide-react';
 import { ARTICLES } from '../data/articles';
 import { PHILIPPINE_REGIONS } from '../data/regions';
 import { BREWING_METHODS } from '../data/brewingMethods';
@@ -73,7 +73,7 @@ export default function SearchModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24 p-4 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-cream w-full max-w-2xl rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="bg-cream text-espresso w-full max-w-2xl rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Search Input Bar */}
         <div className="p-4 sm:p-5 border-b border-border flex items-center gap-3 bg-oat/90">

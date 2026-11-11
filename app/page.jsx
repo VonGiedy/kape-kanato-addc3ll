@@ -88,8 +88,11 @@ export default function KapeKanatoApp() {
     if (isAnyModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = '';
     }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isAnyModalOpen]);
 
   // Handlers
@@ -118,9 +121,12 @@ export default function KapeKanatoApp() {
   };
 
   return (
-    <div className="min-h-screen bg-oat text-espresso font-sans flex flex-col selection:bg-roast selection:text-cream">
+    <div className="min-h-screen text-cream font-sans flex flex-col relative selection:bg-caramel selection:text-espresso">
       
-      {/* Sticky Top Navigation */}
+      {/* Persistent Continuous Warm Studio Umber Backdrop across all scrolls */}
+      <div className="fixed inset-0 -z-10 studio-umber-bg pointer-events-none" />
+
+      {/* Floating Pill Navigation */}
       <Navbar
         currentView={currentView}
         setCurrentView={setCurrentView}
@@ -131,7 +137,7 @@ export default function KapeKanatoApp() {
       />
 
       {/* Main Content Router */}
-      <main className="flex-1 pb-16 pt-4 sm:pt-6">
+      <main className={`flex-1 pb-20 ${currentView === 'home' ? 'pt-0' : 'pt-24 sm:pt-28'}`}>
         {currentView === 'home' && (
           <HomeView
             setCurrentView={setCurrentView}
@@ -244,7 +250,7 @@ export default function KapeKanatoApp() {
       {/* Bookmarks Drawer Modal */}
       {showBookmarksDrawer && (
         <div className="fixed inset-0 z-50 flex justify-end bg-espresso/70 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="bg-cream w-full max-w-md h-full shadow-2xl border-l border-border flex flex-col p-6 animate-in slide-in-from-right duration-300">
+          <div className="bg-cream text-espresso w-full max-w-md h-full shadow-2xl border-l border-border flex flex-col p-6 animate-in slide-in-from-right duration-300">
             <div className="flex items-center justify-between pb-4 border-b border-border">
               <div>
                 <h3 className="font-serif font-bold text-xl text-espresso">

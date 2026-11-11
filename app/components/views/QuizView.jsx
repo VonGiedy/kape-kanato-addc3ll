@@ -5,6 +5,7 @@ import {
   ArrowRight, Sparkles, HelpCircle, Share2, Check 
 } from 'lucide-react';
 import { QUIZ_QUESTIONS } from '../../data/quiz';
+import StudioBanner from '../StudioBanner';
 
 export default function QuizView({ onExploreOrigins, onExploreFundamentals }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -67,36 +68,31 @@ export default function QuizView({ onExploreOrigins, onExploreFundamentals }) {
   };
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="space-y-12 animate-fade-up max-w-5xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-12 px-6 sm:px-10 rounded-3xl shadow-lg border border-border/20 text-center relative overflow-hidden">
-        <div className="max-w-2xl mx-auto">
-          <span className="inline-block bg-roast text-caramel text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Interactive Knowledge Check
-          </span>
-          <h1 className="text-3xl sm:text-4xl font-serif font-bold mb-3">
-            Philippine Coffee IQ Quiz
-          </h1>
-          <p className="text-sm sm:text-base text-oat/90 leading-relaxed">
-            Test your knowledge of coffee cherry biology, post-harvest processing, roasting science, and Mindanao's heritage origins.
-          </p>
-        </div>
-      </div>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Interactive Knowledge Assessment"
+        topRight="10 Questions · ADDC3LL"
+        flankLeft="Mastery"
+        flankRight="Terroir"
+        title="COFFEE IQ QUIZ"
+        description="Test your proficiency in coffee cherry botany, post-harvest processing, thermodynamic roast profiles, and Philippine heritage origins."
+      />
 
       {!isFinished ? (
         /* Active Quiz Question Card */
-        <div className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
+        <div className="bg-cream text-espresso rounded-[2rem] border border-border p-6 sm:p-10 space-y-6">
           
           {/* Progress Header */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-xs font-bold text-muted uppercase tracking-wider">
+          <div className="space-y-2.5">
+            <div className="flex items-center justify-between text-xs font-bold text-muted uppercase tracking-[0.14em]">
               <span>Question {currentQuestionIndex + 1} of {totalQuestions}</span>
-              <span className="text-roast">Current Score: {score}</span>
+              <span className="text-umber font-mono">Score: {score}</span>
             </div>
             <div className="w-full bg-border h-2 rounded-full overflow-hidden">
               <div
-                className="bg-roast h-full transition-all duration-300"
+                className="bg-umber h-full transition-all duration-300"
                 style={{ width: `${((currentQuestionIndex + 1) / totalQuestions) * 100}%` }}
               />
             </div>
@@ -104,7 +100,7 @@ export default function QuizView({ onExploreOrigins, onExploreFundamentals }) {
 
           {/* Question Text */}
           <div className="py-2">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso leading-snug">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-espresso leading-snug">
               {currentQ.question}
             </h2>
           </div>
@@ -179,7 +175,7 @@ export default function QuizView({ onExploreOrigins, onExploreFundamentals }) {
         </div>
       ) : (
         /* Final Score & Certificate Badge Screen */
-        <div className="bg-cream rounded-3xl border border-border p-8 sm:p-12 shadow-sm text-center space-y-8 animate-in zoom-in-95 duration-300">
+        <div className="bg-cream text-espresso rounded-3xl border border-border p-8 sm:p-12 shadow-sm text-center space-y-8 animate-in zoom-in-95 duration-300">
           <div className="w-20 h-20 bg-amber-100 text-roast rounded-full flex items-center justify-center mx-auto shadow-sm">
             <Award size={44} />
           </div>

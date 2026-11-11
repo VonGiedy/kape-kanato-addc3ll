@@ -7,68 +7,49 @@ html {
 }
 
 body {
-  background-color: #F7F2EA;
-  color: #2B1D16;
+  background-color: #382718;
+  color: #FCF9F4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom coffee-themed scrollbar */
+/* Custom studio scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F2EA;
+  background: #362517;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D8C7B5;
+  background: #7A583B;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7A5138;
+  background: #C89258;
 }
 
-/* 3D Perspective and Animation Helpers */
-.preserve-3d {
-  transform-style: preserve-3d;
+/* Continuous Warm Matte Umber Studio Canvas */
+.studio-umber-bg {
+  background: radial-gradient(ellipse 85% 65% at 50% 15%, #654B33 0%, #4E3824 45%, #382618 100%);
 }
 
-.perspective-1000 {
-  perspective: 1000px;
+.studio-umber-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.045;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-.perspective-1200 {
-  perspective: 1200px;
-}
-
-@keyframes floatSubtle {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-6px) rotate(1deg);
-  }
-}
-
-.animate-float {
-  animation: floatSubtle 4s ease-in-out infinite;
-}
-
-@keyframes glowPulse {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-.animate-glow {
-  animation: glowPulse 3s ease-in-out infinite;
+/* Frosted Dark Cocoa Glass Cards */
+.studio-glass-card {
+  background: rgba(24, 15, 9, 0.36);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }

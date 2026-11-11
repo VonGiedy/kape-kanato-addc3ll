@@ -30,7 +30,7 @@ export default function BrewCalculator({ onStartTimer }) {
   };
 
   return (
-    <div className="bg-cream rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
+    <div className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-border">
         <div>
           <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">

@@ -5,6 +5,7 @@ import {
   Coffee, Droplets, Calendar, Award, ChevronRight, X 
 } from 'lucide-react';
 import { PHILIPPINE_REGIONS } from '../../data/regions';
+import StudioBanner from '../StudioBanner';
 
 export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
   const [selectedIsland, setSelectedIsland] = useState('All');
@@ -20,46 +21,41 @@ export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
   });
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-16 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <span className="inline-block bg-roast text-caramel text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Module 4 · Philippine Heritage & Terroir
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            Philippine Coffee Origins
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            From the misty volcanic peaks of Mount Apo to the lush valleys of Bukidnon and heritage groves of Lipa, explore the unique microclimates and indigenous farming communities shaping Philippine specialty coffee.
-          </p>
-        </div>
-      </div>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Module 04 · Heritage & Terroir"
+        topRight="ADDC3LL · Davao City"
+        flankLeft="Mindanao"
+        flankRight="Terroir"
+        title="PHILIPPINE ORIGINS"
+        description="From the volcanic slopes of Mount Apo and Kitanglad ranges in Mindanao to Lipa's historic Barako estates, discover regional cooperatives and single-origin microclimates."
+      />
 
       {/* Region Directory with Interactive Filters */}
       <section className="space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-              Regional Coffee Directory
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-caramel block mb-1">
+              Geographical Directory
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-white tracking-tight">
+              Regional Coffee Origins
             </h2>
-            <p className="text-sm text-muted mt-1">
-              Filter by island archipelago or coffee species to discover local cooperatives and cup attributes.
-            </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex flex-wrap gap-2">
-            <div className="flex items-center gap-1 bg-cream p-1 rounded-xl border border-border">
+            <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md p-1 rounded-full border border-white/15">
               {['All', 'Mindanao', 'Luzon'].map(island => (
                 <button
                   key={island}
                   onClick={() => setSelectedIsland(island)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
                     selectedIsland === island
-                      ? 'bg-espresso text-cream shadow-sm'
-                      : 'text-muted hover:text-espresso'
+                      ? 'bg-white text-espresso shadow-sm'
+                      : 'text-white/75 hover:text-white'
                   }`}
                 >
                   {island}
@@ -67,15 +63,15 @@ export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
               ))}
             </div>
 
-            <div className="flex items-center gap-1 bg-cream p-1 rounded-xl border border-border">
+            <div className="flex items-center gap-1 bg-black/30 backdrop-blur-md p-1 rounded-full border border-white/15">
               {['All', 'Arabica', 'Robusta', 'Liberica'].map(variety => (
                 <button
                   key={variety}
                   onClick={() => setSelectedVarietal(variety)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
                     selectedVarietal === variety
-                      ? 'bg-roast text-cream shadow-sm'
-                      : 'text-muted hover:text-espresso'
+                      ? 'bg-caramel text-espresso shadow-sm'
+                      : 'text-white/75 hover:text-white'
                   }`}
                 >
                   {variety}
@@ -91,7 +87,7 @@ export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
             <div
               key={region.id}
               onClick={() => setActiveRegionModal(region)}
-              className="group bg-cream rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
+              className="group bg-cream text-espresso rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
             >
               <div>
                 <div className="h-48 overflow-hidden relative">
@@ -145,7 +141,7 @@ export default function PhilippineCoffeeView({ onStartTimerForRegion }) {
       {/* Region Detail Modal */}
       {activeRegionModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="bg-cream w-full max-w-3xl max-h-[92vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+          <div className="bg-cream text-espresso w-full max-w-3xl max-h-[92vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
             
             {/* Header */}
             <div className="p-5 border-b border-border flex items-center justify-between bg-oat/90 sticky top-0 z-10">

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Droplets, Play, Clock, Sliders, Coffee, ArrowRight, BookOpen, Sparkles } from 'lucide-react';
 import BrewCalculator from '../BrewCalculator';
 import DrinkVisualizer from '../DrinkVisualizer';
+import StudioBanner from '../StudioBanner';
 import { BREWING_METHODS } from '../../data/brewingMethods';
 
 export default function BrewingView({ onStartTimer, onOpenArticle }) {
@@ -11,22 +12,17 @@ export default function BrewingView({ onStartTimer, onOpenArticle }) {
   const selectedGuide = BREWING_METHODS.find(m => m.id === selectedGuideId) || BREWING_METHODS[0];
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-16 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <span className="inline-block bg-roast text-caramel text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Module 3 · Extraction Science & Barista Lab
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            Brewing Lab & Live Tools
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            Master the variables of coffee extraction: brew ratio, water temperature, grind size distribution, and pour dynamics with live digital tools.
-          </p>
-        </div>
-      </div>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Module 03 · Extraction Lab"
+        topRight="ADDC3LL · Davao City"
+        flankLeft="Precision"
+        flankRight="Extraction"
+        title="BREWING STUDIO"
+        description="Master your daily pour with our coffee-to-water ratio calculator, step-by-step brew timer with gentle chimes, and classic cafe drink guide."
+      />
 
       {/* Interactive Brew Calculator & Live Timer Trigger */}
       <section>
@@ -39,25 +35,25 @@ export default function BrewingView({ onStartTimer, onOpenArticle }) {
       </section>
 
       {/* Step-by-Step Equipment & Method Guides */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm">
+      <section className="bg-cream text-espresso rounded-[2rem] border border-border p-6 sm:p-10">
         <div className="pb-6 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-              <Clock size={14} /> Method Encyclopedia
+            <div className="inline-flex items-center gap-2 bg-oat text-umber px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.14em] mb-2 border border-border">
+              <Clock size={13} className="text-caramel" /> Method Encyclopedia
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-espresso tracking-tight">
               Detailed Brewing Guides
             </h2>
-            <p className="text-sm text-muted mt-1">
-              Select a device to view recipe parameters, step-by-step pour choreography, and barista secrets.
+            <p className="text-xs sm:text-sm text-muted mt-1">
+              Select a device to inspect recipe parameters, pour choreography, and calibrated extraction tips.
             </p>
           </div>
 
           <button
             onClick={() => onStartTimer(selectedGuide, selectedGuide.defaultDose, selectedGuide.defaultRatio, selectedGuide.defaultWater)}
-            className="bg-espresso hover:bg-roast text-cream px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shrink-0"
+            className="bg-umber hover:bg-espresso text-white px-5 py-2.5 rounded-full font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-sm shrink-0"
           >
-            <Play size={16} className="text-caramel fill-current" />
+            <Play size={15} className="text-caramel fill-current" />
             <span>Launch Timer for {selectedGuide.name.split(' ')[0]}</span>
           </button>
         </div>

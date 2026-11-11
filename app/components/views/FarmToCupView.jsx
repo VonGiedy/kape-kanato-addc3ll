@@ -5,8 +5,9 @@ import {
   ArrowRight, Sparkles, Sliders, ChevronRight, BookOpen 
 } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
-import Roaster3DSimulator from '../interactive/Roaster3DSimulator';
-import FermentationSimulator from '../interactive/FermentationSimulator';
+import RoastProfileGuide from '../interactive/RoastProfileGuide';
+import PostHarvestProcessGuide from '../interactive/PostHarvestProcessGuide';
+import StudioBanner from '../StudioBanner';
 
 const FARM_STEPS = [
   {
@@ -95,32 +96,27 @@ export default function FarmToCupView({ onOpenArticle }) {
   const currentStep = FARM_STEPS[activeStep];
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-16 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <span className="inline-block bg-roast text-caramel text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Module 2 · Agricultural Journey
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            Farm to Cup Process
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            Trace the rigorous, collaborative journey of coffee from highland cultivation and selective harvest to post-harvest fermentation, precision roasting, and professional cupping.
-          </p>
-        </div>
-      </div>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Module 02 · Processing & Roasting"
+        topRight="ADDC3LL · Davao City"
+        flankLeft="Harvest"
+        flankRight="Roasting"
+        title="FARM TO CUP"
+        description="Follow the complete journey from highland agroforestry and selective cherry harvest through post-harvest processing, roast development, and cupping."
+      />
 
       {/* Interactive Step-by-Step Stepper */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm">
+      <section className="bg-cream text-espresso rounded-[2rem] border border-border p-6 sm:p-10">
         <div className="pb-6 border-b border-border flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-              <Sprout size={14} /> Interactive 6-Stage Journey
+            <div className="inline-flex items-center gap-2 bg-oat text-umber px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.14em] mb-2 border border-border">
+              <Sprout size={13} className="text-caramel" /> Interactive 6-Stage Journey
             </div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-              The Six Stages of Coffee Production
+            <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-espresso tracking-tight">
+              Six Stages of Production
             </h2>
           </div>
 
@@ -128,14 +124,14 @@ export default function FarmToCupView({ onOpenArticle }) {
             <button
               onClick={() => setActiveStep(prev => Math.max(0, prev - 1))}
               disabled={activeStep === 0}
-              className="px-4 py-2 rounded-xl bg-oat hover:bg-border/60 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-espresso transition-colors"
+              className="px-4 py-2 rounded-full bg-oat hover:bg-border/60 disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-espresso transition-colors border border-border"
             >
               Previous Stage
             </button>
             <button
               onClick={() => setActiveStep(prev => Math.min(FARM_STEPS.length - 1, prev + 1))}
               disabled={activeStep === FARM_STEPS.length - 1}
-              className="px-4 py-2 rounded-xl bg-espresso hover:bg-roast disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-cream transition-colors"
+              className="px-5 py-2 rounded-full bg-umber hover:bg-espresso disabled:opacity-40 disabled:cursor-not-allowed text-xs font-bold text-white transition-colors"
             >
               Next Stage
             </button>
@@ -223,21 +219,21 @@ export default function FarmToCupView({ onOpenArticle }) {
         </div>
       </section>
 
-      {/* Interactive Post-Harvest Fermentation Simulator */}
+      {/* Interactive Post-Harvest Processing Comparison */}
       <section>
-        <FermentationSimulator onOpenArticle={onOpenArticle} />
+        <PostHarvestProcessGuide onOpenArticle={onOpenArticle} />
       </section>
 
-      {/* Interactive 3D Drum Roaster & Thermodynamics Simulator */}
+      {/* Interactive Roast Stages & Flavor Curve */}
       <section>
-        <Roaster3DSimulator onOpenArticle={onOpenArticle} />
+        <RoastProfileGuide onOpenArticle={onOpenArticle} />
       </section>
 
       {/* Featured Articles for Farm to Cup */}
       <section className="grid md:grid-cols-2 gap-6">
         <div
           onClick={() => onOpenArticle('harvesting-processing')}
-          className="group bg-cream p-6 rounded-3xl border border-border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between"
+          className="group bg-cream text-espresso p-6 rounded-3xl border border-border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between"
         >
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-roast">Article</span>
@@ -256,7 +252,7 @@ export default function FarmToCupView({ onOpenArticle }) {
 
         <div
           onClick={() => onOpenArticle('roasting-science')}
-          className="group bg-cream p-6 rounded-3xl border border-border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between"
+          className="group bg-cream text-espresso p-6 rounded-3xl border border-border cursor-pointer hover:shadow-md transition-all flex flex-col justify-between"
         >
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-roast">Article</span>

@@ -8,6 +8,7 @@ import {
   GraduationCap, Trophy, Mic
 } from 'lucide-react';
 import { ACHIEVEMENTS } from '../../data/communityPosts';
+import StudioBanner from '../StudioBanner';
 
 export default function CommunityView() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -37,56 +38,39 @@ export default function CommunityView() {
   });
 
   return (
-    <div className="space-y-12 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-12 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Editorial Header */}
-      <div className="bg-espresso text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
-              <Trophy size={13} />
-              <span>Official University Record</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-3">
-              ADDC3LL Achievements & Milestones
-            </h1>
-            <p className="text-base sm:text-lg text-oat/90 leading-relaxed font-normal">
-              A permanent archive of academic keynotes, national brewing competition podiums, farmer-academe field triumphs, and institutional milestones achieved by the Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL) and student partners.
-            </p>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Official University Archive"
+        topRight="ADDC3LL · Davao City"
+        flankLeft="Laurels"
+        flankRight="Milestones"
+        title="ADDC3LL ACHIEVEMENTS"
+        description="Permanent record of national brewing competition podiums, engineering keynotes, farmer-academe collaborations, and Class 40 IP milestones from Ateneo de Davao."
+      >
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+          <div className="p-3.5 bg-black/25 backdrop-blur-md rounded-2xl border border-white/10">
+            <span className="text-caramel font-display font-black block text-base sm:text-lg">PCQC 2026</span>
+            <span className="text-oat/75 text-[11px]">2nd Runner-Up & Top 15</span>
           </div>
-
-          <div className="hidden sm:flex shrink-0 p-2.5 bg-white rounded-2xl border border-white/20 shadow-md w-24 h-24 items-center justify-center">
-            <img 
-              src="/addc3ll-logo.jpg" 
-              alt="ADDC3LL Official Logo" 
-              className="w-full h-full object-contain"
-            />
+          <div className="p-3.5 bg-black/25 backdrop-blur-md rounded-2xl border border-white/10">
+            <span className="text-caramel font-display font-black block text-base sm:text-lg">DARCES 2026</span>
+            <span className="text-oat/75 text-[11px]">3rd Runner-Up Duo Brewing</span>
           </div>
-        </div>
-
-        {/* Quick Stats Grid */}
-        <div className="relative z-10 mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/10 text-xs">
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-            <span className="text-caramel font-bold block text-lg font-serif">PCQC 2026</span>
-            <span className="text-oat/70 text-[11px]">2nd Runner-Up & Top 15</span>
+          <div className="p-3.5 bg-black/25 backdrop-blur-md rounded-2xl border border-white/10">
+            <span className="text-caramel font-display font-black block text-base sm:text-lg">74th PSME</span>
+            <span className="text-oat/75 text-[11px]">National Keynote Speaker</span>
           </div>
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-            <span className="text-caramel font-bold block text-lg font-serif">DARCES 2026</span>
-            <span className="text-oat/70 text-[11px]">3rd Runner-Up Duo Brewing</span>
-          </div>
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-            <span className="text-caramel font-bold block text-lg font-serif">74th PSME</span>
-            <span className="text-oat/70 text-[11px]">National Keynote Speaker</span>
-          </div>
-          <div className="p-3 bg-white/5 rounded-xl border border-white/10">
-            <span className="text-caramel font-bold block text-lg font-serif">Class 40</span>
-            <span className="text-oat/70 text-[11px]">IPOPHL 10-Yr Trademark</span>
+          <div className="p-3.5 bg-black/25 backdrop-blur-md rounded-2xl border border-white/10">
+            <span className="text-caramel font-display font-black block text-base sm:text-lg">CLASS 40</span>
+            <span className="text-oat/75 text-[11px]">IPOPHL 10-Yr Trademark</span>
           </div>
         </div>
-      </div>
+      </StudioBanner>
 
       {/* Blue Beans Society Synergy Note */}
-      <div className="bg-oat border border-border p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div className="bg-oat text-espresso border border-border p-5 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-start gap-3">
           <div className="w-10 h-10 rounded-xl bg-roast text-cream flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
             <GraduationCap size={20} className="text-caramel" />
@@ -112,19 +96,19 @@ export default function CommunityView() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-border">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-white/15">
         {/* Categories */}
-        <div className="flex flex-wrap gap-1.5 p-1 bg-cream rounded-2xl border border-border">
+        <div className="flex flex-wrap gap-1.5 p-1 bg-black/30 backdrop-blur-md rounded-full border border-white/15">
           {categories.map((cat) => {
             const isSelected = activeCategory === cat;
             return (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`text-xs px-3.5 py-2 rounded-xl font-medium transition-all ${
+                className={`text-xs px-3.5 py-1.5 rounded-full font-semibold transition-all ${
                   isSelected 
-                    ? 'bg-roast text-cream shadow-sm font-semibold' 
-                    : 'text-muted hover:text-espresso hover:bg-oat'
+                    ? 'bg-white text-espresso shadow-sm font-bold' 
+                    : 'text-white/75 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {cat}
@@ -135,13 +119,13 @@ export default function CommunityView() {
 
         {/* Real-time search */}
         <div className="relative w-full md:w-72">
-          <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" />
+          <Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/60" />
           <input
             type="text"
             placeholder="Search honorees, events, awards..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-cream border border-border rounded-xl text-xs sm:text-sm text-espresso focus:outline-none focus:ring-2 focus:ring-roast"
+            className="w-full pl-9 pr-4 py-2 bg-black/30 backdrop-blur-md border border-white/15 rounded-full text-xs sm:text-sm text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-caramel"
           />
         </div>
       </div>
@@ -149,7 +133,7 @@ export default function CommunityView() {
       {/* Achievements Archive List */}
       <div className="space-y-10">
         {filteredAchievements.length === 0 ? (
-          <div className="bg-cream rounded-3xl p-12 text-center border border-border space-y-3">
+          <div className="bg-cream text-espresso rounded-3xl p-12 text-center border border-border space-y-3">
             <Award size={32} className="mx-auto text-muted/60" />
             <h3 className="text-lg font-serif font-bold text-espresso">No achievements match your search</h3>
             <p className="text-xs sm:text-sm text-muted">Try clearing the search query or selecting a different category.</p>
@@ -164,7 +148,7 @@ export default function CommunityView() {
           filteredAchievements.map((item) => (
             <article 
               key={item.id}
-              className="bg-cream rounded-3xl border border-border shadow-sm overflow-hidden hover:border-roast/40 transition-colors"
+              className="bg-cream text-espresso rounded-3xl border border-border shadow-sm overflow-hidden hover:border-roast/40 transition-colors"
             >
               {/* Card Header Banner */}
               <div className="p-6 sm:p-8 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/70 bg-oat/40">

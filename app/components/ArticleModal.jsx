@@ -35,7 +35,7 @@ export default function ArticleModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-cream w-full max-w-3xl max-h-[92vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
+      <div className="bg-cream text-espresso w-full max-w-3xl max-h-[92vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 duration-300">
         
         {/* Sticky Header Bar */}
         <div className="p-4 sm:px-6 border-b border-border flex items-center justify-between bg-oat/90 backdrop-blur-sm sticky top-0 z-20">

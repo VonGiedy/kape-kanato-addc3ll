@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from 'react';
-import { BookOpen, ArrowRight, Check, Sparkles, Layers, Info } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { ARTICLES } from '../../data/articles';
-import CoffeeBean3DViewer from '../interactive/CoffeeBean3DViewer';
+import CoffeeCherryAnatomy from '../interactive/CoffeeCherryAnatomy';
+import StudioBanner from '../StudioBanner';
 
 const SPECIES_COMPARISON = [
   {
@@ -48,36 +49,33 @@ const SPECIES_COMPARISON = [
 ];
 
 export default function FundamentalsView({ onOpenArticle }) {
-
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-16 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-14 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 max-w-3xl">
-          <span className="inline-block bg-roast text-caramel text-xs font-bold uppercase tracking-wider px-3.5 py-1 rounded-full mb-3">
-            Module 1 · Botanical Foundations
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold mb-4">
-            Coffee Fundamentals
-          </h1>
-          <p className="text-base sm:text-lg text-oat/90 leading-relaxed">
-            Understand the biology of the coffee cherry, compare the four commercial species cultivated in the Philippines, and explore the ancient history of the beverage.
-          </p>
-        </div>
-      </div>
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Module 01 · Botanical Foundations"
+        topRight="ADDC3LL · Davao City"
+        flankLeft="Botany"
+        flankRight="Origins"
+        title="COFFEE FUNDAMENTALS"
+        description="Explore the botanical structure of a coffee cherry, compare the four commercial species grown across the Philippines, and trace coffee's global heritage."
+      />
 
       {/* Core Educational Articles Grid */}
       <section>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-caramel block mb-1">
+              Curated Monographs
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-white tracking-tight">
               Foundational Reading
             </h2>
-            <p className="text-sm text-muted mt-1">
-              Select an article to open the full reader with key takeaways and summaries.
-            </p>
           </div>
+          <p className="text-xs sm:text-sm text-white/75">
+            Select an article to open the distraction-free reader with summaries.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -88,7 +86,7 @@ export default function FundamentalsView({ onOpenArticle }) {
               <div
                 key={articleId}
                 onClick={() => onOpenArticle(articleId)}
-                className="group bg-cream rounded-3xl overflow-hidden border border-border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
+                className="group bg-cream text-espresso rounded-3xl overflow-hidden border border-border hover:border-umber/50 hover:shadow-[0_14px_35px_rgba(30,20,14,0.08)] hover:-translate-y-1 transition-all cursor-pointer flex flex-col justify-between"
               >
                 <div>
                   <div className="h-48 overflow-hidden relative">
@@ -97,28 +95,28 @@ export default function FundamentalsView({ onOpenArticle }) {
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-3 right-3 bg-espresso/80 backdrop-blur-sm text-cream text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    <div className="absolute top-3 right-3 bg-espresso/85 backdrop-blur-sm text-white text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                       {article.readTime}
                     </div>
                   </div>
 
                   <div className="p-6">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-roast block mb-1">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-umber block mb-1.5">
                       {article.category}
                     </span>
-                    <h3 className="text-xl font-serif font-bold text-espresso mb-2 group-hover:text-roast transition-colors">
+                    <h3 className="text-lg sm:text-xl font-display font-bold text-espresso mb-2 group-hover:text-umber transition-colors leading-snug">
                       {article.title}
                     </h3>
-                    <p className="text-sm text-muted line-clamp-3 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-muted line-clamp-3 leading-relaxed">
                       {article.summary}
                     </p>
                   </div>
                 </div>
 
                 <div className="p-6 pt-0">
-                  <div className="pt-4 border-t border-border flex items-center justify-between text-xs font-bold text-roast group-hover:text-espresso">
+                  <div className="pt-4 border-t border-border flex items-center justify-between text-xs font-bold text-umber group-hover:text-espresso">
                     <span>Read Full Article</span>
-                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </div>
@@ -127,46 +125,46 @@ export default function FundamentalsView({ onOpenArticle }) {
         </div>
       </section>
 
-      {/* Interactive 3D Anatomy of the Coffee Cherry & Bean */}
+      {/* Interactive Anatomy of the Coffee Cherry & Bean */}
       <section>
-        <CoffeeBean3DViewer onOpenArticle={onOpenArticle} />
+        <CoffeeCherryAnatomy onOpenArticle={onOpenArticle} />
       </section>
 
       {/* Four Commercial Species Comparison Table */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm overflow-hidden">
+      <section className="bg-cream text-espresso rounded-[2rem] border border-border p-6 sm:p-10 overflow-hidden">
         <div className="pb-6 border-b border-border">
-          <div className="inline-flex items-center gap-2 bg-oat text-roast px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
-            <Sparkles size={14} /> Philippine Biodiversity
+          <div className="inline-flex items-center gap-2 bg-oat text-umber px-3.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-[0.14em] mb-2 border border-border">
+            <Sparkles size={13} className="text-caramel" /> Philippine Biodiversity
           </div>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
-            Comparing the 4 Commercial Coffee Species
+          <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-espresso tracking-tight">
+            Comparing 4 Commercial Species
           </h2>
-          <p className="text-sm text-muted mt-1">
-            The Philippines is among the select few countries worldwide commercially producing Arabica, Robusta, Liberica, and Excelsa simultaneously.
+          <p className="text-xs sm:text-sm text-muted mt-1">
+            The Philippines is among the select few nations worldwide commercially cultivating Arabica, Robusta, Liberica, and Excelsa side-by-side.
           </p>
         </div>
 
         <div className="mt-6 overflow-x-auto">
           <table className="w-full text-left text-sm border-collapse min-w-[700px]">
             <thead>
-              <tr className="border-b border-border bg-oat/70 text-espresso">
-                <th className="p-4 font-serif font-bold">Species</th>
-                <th className="p-4 font-serif font-bold">Optimal Altitude</th>
-                <th className="p-4 font-serif font-bold">Caffeine %</th>
-                <th className="p-4 font-serif font-bold">Natural Sugars</th>
-                <th className="p-4 font-serif font-bold">Cup Flavor Profile</th>
-                <th className="p-4 font-serif font-bold">Philippine Hubs</th>
+              <tr className="border-b border-border bg-oat/70 text-espresso text-xs uppercase tracking-wider font-display">
+                <th className="p-4 font-bold">Species</th>
+                <th className="p-4 font-bold">Optimal Altitude</th>
+                <th className="p-4 font-bold">Caffeine %</th>
+                <th className="p-4 font-bold">Natural Sugars</th>
+                <th className="p-4 font-bold">Cup Flavor Profile</th>
+                <th className="p-4 font-bold">Philippine Hubs</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-border">
+            <tbody className="divide-y divide-border text-xs sm:text-sm">
               {SPECIES_COMPARISON.map((sp, idx) => (
-                <tr key={idx} className="hover:bg-oat/40 transition-colors">
+                <tr key={idx} className="hover:bg-oat/50 transition-colors">
                   <td className="p-4 font-bold text-espresso">
                     {sp.name}
-                    <span className="block text-[11px] text-muted font-normal">{sp.chromosomes}</span>
+                    <span className="block text-[11px] font-mono text-muted font-normal mt-0.5">{sp.chromosomes}</span>
                   </td>
-                  <td className="p-4 text-muted">{sp.optimalAltitude}</td>
-                  <td className="p-4 font-mono font-semibold text-roast">{sp.caffeine}</td>
+                  <td className="p-4 text-muted font-medium">{sp.optimalAltitude}</td>
+                  <td className="p-4 font-mono font-bold text-umber">{sp.caffeine}</td>
                   <td className="p-4 text-muted">{sp.sugars}</td>
                   <td className="p-4 text-espresso font-medium">{sp.flavorNotes}</td>
                   <td className="p-4 text-muted text-xs">{sp.philippineRegions}</td>
@@ -180,4 +178,3 @@ export default function FundamentalsView({ onOpenArticle }) {
     </div>
   );
 }
-

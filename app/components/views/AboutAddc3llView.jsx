@@ -6,6 +6,7 @@ import {
   ShieldCheck, ExternalLink, Calendar, FileText,
   FlaskConical, School, Target, TrendingUp, Mail, Layers
 } from 'lucide-react';
+import StudioBanner from '../StudioBanner';
 
 export default function AboutAddc3llView() {
   const [formData, setFormData] = useState({
@@ -106,34 +107,38 @@ export default function AboutAddc3llView() {
   ];
 
   return (
-    <div className="space-y-16 animate-in fade-in duration-500 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="space-y-16 animate-fade-up max-w-7xl mx-auto px-4 sm:px-6">
       
-      {/* Header Banner */}
-      <div className="bg-espresso text-cream py-12 px-6 sm:px-12 rounded-3xl shadow-lg border border-border/20 relative overflow-hidden">
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div className="max-w-2xl space-y-4">
-            <div className="inline-flex items-center gap-2 bg-roast text-caramel text-xs font-semibold px-3.5 py-1 rounded-full uppercase tracking-wider">
-              Ateneo de Davao University Initiative · Prototype
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-serif font-bold">
-              About ADDC3LL
-            </h1>
-            <p className="text-base sm:text-lg text-oat/90 leading-relaxed font-normal">
-              The <strong>Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory (ADDC3LL)</strong> is a university-based research, training, and innovation facility located in <strong>Marilog, Davao City</strong>. It connects academic science with grassroots development across Mindanao's coffee and cacao sectors.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex items-center justify-center">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-3xl bg-white p-3.5 shadow-xl border border-white/20 flex items-center justify-center">
+      {/* Studio Editorial Header */}
+      <StudioBanner
+        topLeft="Ateneo de Davao University"
+        topRight="Marilog, Davao City · PH"
+        flankLeft="Coffee"
+        flankRight="Cacao"
+        title="ABOUT ADDC3LL"
+        description="The Ateneo de Davao Coffee and Cacao Collaborative Learning Laboratory unites engineering innovation, fermentation R&D, and farmer education across Mindanao."
+      >
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-16 h-16 rounded-2xl bg-white p-2 shadow-lg border border-white/20 flex items-center justify-center shrink-0">
               <img 
                 src="/addc3ll-logo.jpg" 
                 alt="ADDC3LL Official Logo" 
                 className="w-full h-full object-contain"
               />
             </div>
+            <div className="text-left">
+              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-caramel block">Official Lab Emblem</span>
+              <span className="font-display font-bold text-sm sm:text-base text-white block">Collaborative Learning Laboratory</span>
+              <span className="text-xs text-oat/75">IPOPHL Class 40 Registered (2026–2036)</span>
+            </div>
+          </div>
+
+          <div className="text-xs text-oat/80 font-mono bg-black/25 px-4 py-2 rounded-full border border-white/10">
+            SPADe & MinPAD RISE Partner Initiative
           </div>
         </div>
-      </div>
+      </StudioBanner>
 
       {/* Prototype Disclaimer */}
       <div className="bg-amber-50 border border-amber-200/90 p-4 sm:p-5 rounded-2xl text-xs sm:text-sm text-espresso/90 flex items-start gap-3 shadow-sm">
@@ -149,7 +154,7 @@ export default function AboutAddc3llView() {
       </div>
 
       {/* Institutional Overview Quick Facts */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
+      <section className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-8 shadow-sm">
         <h3 className="text-xs font-bold uppercase tracking-wider text-roast mb-4">
           Institutional Profile & Overview
         </h3>
@@ -176,13 +181,13 @@ export default function AboutAddc3llView() {
       {/* 5 Official Objectives */}
       <section className="space-y-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-caramel block mb-1">
             Institutional Goals
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+          <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-white tracking-tight">
             Official Objectives
           </h2>
-          <p className="text-sm text-muted mt-1 max-w-2xl">
+          <p className="text-sm text-white/75 mt-1 max-w-2xl">
             ADDC3LL operates under five core mandates to transform post-harvest quality and farmer livelihoods in Mindanao:
           </p>
         </div>
@@ -191,7 +196,7 @@ export default function AboutAddc3llView() {
           {OBJECTIVES.map((obj) => (
             <div 
               key={obj.num}
-              className="bg-cream p-6 rounded-2xl border border-border shadow-sm flex flex-col justify-between hover:border-roast/50 transition-colors"
+              className="bg-cream text-espresso p-6 rounded-2xl border border-border shadow-sm flex flex-col justify-between hover:border-roast/50 transition-colors"
             >
               <div>
                 <span className="w-8 h-8 rounded-full bg-oat text-roast flex items-center justify-center font-bold text-xs mb-4 border border-border">
@@ -230,20 +235,20 @@ export default function AboutAddc3llView() {
       {/* Research Programs: Coffee & Cacao */}
       <section className="space-y-6">
         <div>
-          <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-caramel block mb-1">
             Scope of Innovation
           </span>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold text-espresso">
+          <h2 className="text-2xl sm:text-3xl font-display font-black uppercase text-white tracking-tight">
             Research Programs
           </h2>
-          <p className="text-sm text-muted mt-1 max-w-2xl">
+          <p className="text-sm text-white/75 mt-1 max-w-2xl">
             Integrated R&D programs covering the full product lifecycle from post-harvest engineering to sensory quality and marketing:
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Coffee Research Program */}
-          <div className="bg-cream p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
+          <div className="bg-cream text-espresso p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
             <div className="flex items-center gap-3 pb-3 border-b border-border">
               <div className="w-10 h-10 rounded-xl bg-espresso text-cream flex items-center justify-center">
                 <Coffee size={20} className="text-caramel" />
@@ -267,7 +272,7 @@ export default function AboutAddc3llView() {
           </div>
 
           {/* Cacao Research Program */}
-          <div className="bg-cream p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
+          <div className="bg-cream text-espresso p-6 sm:p-8 rounded-3xl border border-border shadow-sm space-y-4">
             <div className="flex items-center gap-3 pb-3 border-b border-border">
               <div className="w-10 h-10 rounded-xl bg-amber-900 text-cream flex items-center justify-center">
                 <Sparkles size={20} className="text-amber-200" />
@@ -293,7 +298,7 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Facilities and Resources */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-8">
+      <section className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-8">
         <div>
           <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
             Infrastructure & Learning Spaces
@@ -332,7 +337,7 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Expected Outcomes */}
-      <section className="bg-oat rounded-3xl border border-border p-6 sm:p-10 space-y-6">
+      <section className="bg-oat text-espresso rounded-3xl border border-border p-6 sm:p-10 space-y-6">
         <div>
           <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
             Measurable Impact
@@ -360,7 +365,7 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Education & Academic Mandate */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-8 shadow-sm space-y-4">
+      <section className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-8 shadow-sm space-y-4">
         <span className="text-xs font-bold uppercase tracking-widest text-roast block">
           Academic Extension
         </span>
@@ -417,7 +422,7 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Leadership & Official Contact Details */}
-      <section className="bg-cream rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
+      <section className="bg-cream text-espresso rounded-3xl border border-border p-6 sm:p-10 shadow-sm space-y-6">
         <div className="pb-4 border-b border-border">
           <span className="text-xs font-bold uppercase tracking-widest text-roast block mb-1">
             Direct Contacts
@@ -467,7 +472,7 @@ export default function AboutAddc3llView() {
       </section>
 
       {/* Interactive Collaboration Form */}
-      <section className="bg-oat rounded-3xl border border-border p-6 sm:p-10">
+      <section className="bg-oat text-espresso rounded-3xl border border-border p-6 sm:p-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           <div className="lg:col-span-5 space-y-4">

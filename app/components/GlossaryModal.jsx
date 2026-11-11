@@ -18,7 +18,7 @@ export default function GlossaryModal({ initialSearch = '', onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-cream w-full max-w-3xl max-h-[90vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="bg-cream text-espresso w-full max-w-3xl max-h-[90vh] rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Header */}
         <div className="p-5 border-b border-border flex items-center justify-between bg-oat/90 sticky top-0 z-10">

@@ -132,7 +132,7 @@ export default function BrewTimerModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-espresso/80 backdrop-blur-md animate-in fade-in duration-200">
-      <div className="bg-cream w-full max-w-xl rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
+      <div className="bg-cream text-espresso w-full max-w-xl rounded-3xl shadow-2xl border border-border flex flex-col overflow-hidden animate-in zoom-in-95 duration-200">
         
         {/* Header */}
         <div className="p-4 sm:p-5 border-b border-border flex items-center justify-between bg-oat/80">
